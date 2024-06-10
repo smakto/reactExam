@@ -26,3 +26,27 @@ async function connect() {
     console.error(e);
   }
 }
+
+connect();
+
+app.get("/games", async (req, res) => {
+  try {
+    let collection = await db.collection("gamesMain");
+    let results = await collection.find().toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+app.post("/games", async (req, res) => {
+  try {
+    const newGame = req.body;
+    console.log(req.body);
+    let collection = await db.collection("gamesMain");
+    let results = await collection.insertOne(newGame);
+    res.json({ success: true });
+  } catch (e) {
+    res.json(e);
+  }
+});
