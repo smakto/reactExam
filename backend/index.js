@@ -50,3 +50,31 @@ app.post("/games", async (req, res) => {
     res.json(e);
   }
 });
+
+app.delete("/games/delete/:id", async (req, res) => {
+  try {
+    let objectedId = new ObjectId(req.params.id);
+    let collection = await db.collection("gamesMain");
+    let results = await collection.deleteOne({
+      _id: objectedId,
+    });
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+app.patch("/games/edit/:id", async (req, res) => {
+  try {
+    let objectedId = new ObjectId(req.params.id);
+    let collection = await db.collection("gamesMain");
+    let result = await collection.findOneAndUpdate(
+      { _id: objectedId },
+      { $set: req.body },
+      { returnOriginal: false }
+    );
+    res.status(200).json({ message: "success" });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});

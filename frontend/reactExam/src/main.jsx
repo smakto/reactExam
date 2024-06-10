@@ -40,4 +40,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 // Edit modal to change status
 // Padaryti veikiantį search
 // Doubleclick - nuveda į game page.
-//
+// Error handling

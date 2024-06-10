@@ -9,7 +9,7 @@ export function GamePage() {
 }
 
 function GameCard() {
-  const { dataSet } = useData("games");
+  const { dataSet, deleteData } = useData("games");
 
   console.log(dataSet);
 
@@ -28,7 +28,8 @@ function GameCard() {
         </h3>
         <button
           onClick={() => {
-            console.log(game._id);
+            deleteData(game._id);
+            // console.log(game._id);
           }}
         >
           <i className="fa-solid fa-trash fa-2xl"></i>

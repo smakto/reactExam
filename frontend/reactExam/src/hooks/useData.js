@@ -24,5 +24,24 @@ export function useData(url) {
     });
   }
 
-  return { dataSet, loaded, addData };
+  function deleteData(gameId) {
+    fetch(`http://localhost:3000/games/delete/${gameId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }
+
+  function patchData(gameId, patchedData) {
+    fetch(`http://localhost:3000/games/delete/${gameId}`, {
+      method: "PATCH",
+      body: JSON.stringify(patchedData),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  }
+
+  return { dataSet, loaded, addData, deleteData };
 }
