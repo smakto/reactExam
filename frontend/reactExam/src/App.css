@@ -11,3 +11,29 @@ div.headerTop > div {
 div.headerBottom {
   border: 1px solid black;
 }
+
+.gameCardsContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+
+  border: 1px solid black;
+}
+
+.gameCard {
+  width: 33%;
+  border: 1px solid gray;
+}
+
+.gameCard button {
+  border: none;
+  background: none;
+}
+.gameCard button:hover {
+  cursor: pointer;
+}
+
+.gameCard i {
+  color: red;
+}
