@@ -1,0 +1,39 @@
+header {
+  background-color: #7091e6;
+  border: 1px solid #ede8f5;
+  padding: 15px;
+  font-family: "Tiny5", sans-serif;
+  font-size: larger;
+}
+
+header img {
+  width: 100px;
+}
+
+div.headerTop {
+  display: flex;
+  flex-direction: row;
+}
+
+div.headerTop > div,
+div.headerBottom > div {
+  width: 50%;
+  text-align: center;
+}
+
+div.headerBottom {
+  display: flex;
+  flex-direction: row;
+}
+
+header button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+}
+
+div.headerTopRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

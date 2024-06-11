@@ -4,4 +4,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #8697c4;
 }
+
+/* 3D52A0 = darkest
+7091E6 = header
+8697C4 = gray/blue (more blue) (background)
+ADBBDA = gray/blue (more gray)
+EDE8F5 = white/gray */

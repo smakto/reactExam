@@ -1,0 +1,45 @@
+.gameCardsContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 25px;
+  color: #3d52a0;
+}
+
+.gameCard {
+  background-color: #ede8f5;
+  width: 30%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.gameCard h2 {
+  text-align: center;
+}
+
+.gameCard button {
+  border: none;
+  background: none;
+  padding-bottom: 5px;
+}
+
+.gameCard button:hover {
+  cursor: pointer;
+}
+
+.gameCard button i {
+  color: red;
+}
+
+.platformIcons {
+  display: flex;
+  justify-content: space-evenly;
+  height: 25px;
+  align-items: center;
+}
+
+.gameCardButtonContainer {
+  text-align: right;
+}

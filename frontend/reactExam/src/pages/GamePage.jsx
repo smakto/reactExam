@@ -1,39 +1,53 @@
 import { useData } from "../hooks/useData";
+import "../styles/gameCards.css";
 
 export function GamePage() {
+  const { dataSet, deleteData } = useData("games");
+
   return (
     <div className="gameCardsContainer">
-      <GameCard />
+      <GameCard data={dataSet} dataDel={deleteData} />
     </div>
   );
 }
 
-function GameCard() {
-  const { dataSet, deleteData } = useData("games");
-
-  console.log(dataSet);
-
-  return dataSet.map((game) => {
+function GameCard({ data, dataDel }) {
+  return data.map((game) => {
     return (
       <div key={game._id} className="gameCard">
         <h2>
           {game.name} ({game.releaseDate})
         </h2>
-        <h3>{game.genre}</h3>
-        <h3>{game.status}</h3>
-        <h3>
-          {`${game.platform.PC ? "PC" : ""} 
-          ${game.platform.Playstation ? "Playstation" : ""} 
-          ${game.platform.Xbox ? "Xbox" : ""}`}
-        </h3>
-        <button
-          onClick={() => {
-            deleteData(game._id);
-            // console.log(game._id);
-          }}
-        >
-          <i className="fa-solid fa-trash fa-2xl"></i>
-        </button>
+        <h4>Genre: {game.genre}</h4>
+        <h4>Status: {game.status}</h4>
+
+        <div className="platformIcons">
+          {game.platform.Playstation ? (
+            <i className="fa-brands fa-playstation fa-xl"></i>
+          ) : (
+            ""
+          )}
+          {game.platform.Xbox ? (
+            <i className="fa-brands fa-xbox fa-xl"></i>
+          ) : (
+            ""
+          )}
+          {game.platform.PC ? (
+            <i className="fa-solid fa-computer fa-xl"></i>
+          ) : (
+            ""
+          )}
+        </div>
+
+        <div className="gameCardButtonContainer">
+          <button
+            onClick={() => {
+              dataDel(game._id);
+            }}
+          >
+            <i className="fa-solid fa-trash fa-xl"></i>
+          </button>
+        </div>
       </div>
     );
   });
