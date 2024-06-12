@@ -6,10 +6,12 @@ export function Header() {
     <header>
       <div className="headerTop">
         <div className="headerTopLeft">
-          <img
-            src="https://i.redd.it/qe9k0tyayre21.png"
-            alt="gamePageLogo"
-          ></img>
+          <Link to={"/"}>
+            <img
+              src="https://i.redd.it/qe9k0tyayre21.png"
+              alt="gamePageLogo"
+            ></img>
+          </Link>
         </div>
         <div className="headerTopRight">
           <button>Menu</button>

@@ -43,6 +43,7 @@ function GameCard({ data, dataDel }) {
           <button
             onClick={() => {
               dataDel(game._id);
+              window.location.reload();
             }}
           >
             <i className="fa-solid fa-trash fa-xl"></i>

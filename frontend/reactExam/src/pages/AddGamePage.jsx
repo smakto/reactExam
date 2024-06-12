@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { Input, InputCheckbox } from "../components/Inputs";
+import { useEffect, useRef, useState } from "react";
 import { useData } from "../hooks/useData";
 import "../styles/addGamePage.css";
 
@@ -9,12 +10,11 @@ export function AddGamePage() {
   const [releaseDate, setReleaseDate] = useState(0);
   const [gameGenre, setGameGenre] = useState("");
   const [image, setGameImage] = useState("");
-
-  const [isMultiplayer, setIsMultiplayer] = useState(false);
-
+  const [isMultiplayer, setIsMultiplayer] = useState("No");
   const [onPlaystation, setOnPlaystation] = useState(false);
   const [onPC, setOnPC] = useState(false);
   const [onXbox, setOnXbox] = useState(false);
+  const [gameStatus, setGameStatus] = useState("Wishlist");
 
   function handleChange(value, setData) {
     setData(value);
@@ -24,11 +24,35 @@ export function AddGamePage() {
     setChecked(!isChecked);
   }
 
-  console.log({
-    Playstation: onPlaystation ? 1 : 0,
-    Xbox: onXbox ? 1 : 0,
-    PC: onPC ? 1 : 0,
-  });
+  function handleSubmit() {
+    const thisYear = new Date().getFullYear();
+    if (onPlaystation === false && onPC === false && onXbox === false) {
+      alert("Please select at least one platform");
+    } else if (
+      Number(releaseDate) < 1958 ||
+      Number(releaseDate) > thisYear + 5
+    ) {
+      alert(
+        `Please enter valid release date (later than 1958 & no later than ${
+          thisYear + 5
+        })`
+      );
+    } else {
+      addData({
+        genre: gameGenre,
+        img: image,
+        multiplayer: isMultiplayer,
+        name: gameTitle,
+        releaseDate: Number(releaseDate),
+        status: gameStatus,
+        platform: {
+          Playstation: onPlaystation ? 1 : 0,
+          Xbox: onXbox ? 1 : 0,
+          PC: onPC ? 1 : 0,
+        },
+      });
+    }
+  }
 
   return (
     <form className="addGameForm">
@@ -109,56 +133,32 @@ export function AddGamePage() {
           setChecked={setOnPC}
         />
       </div>
+
+      <div className="statusSelector">
+        <select
+          name="statusSelect"
+          id="statusSelect"
+          onChange={(event) => {
+            setGameStatus(event.target.value);
+          }}
+        >
+          <option defaultChecked value="Wishlist">
+            Wishlist
+          </option>
+          <option value="In-progress">In-progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+      <div className="formSubmitDiv">
+        <input
+          type="submit"
+          value={"Add game"}
+          onClick={(event) => {
+            event.preventDefault();
+            handleSubmit();
+          }}
+        ></input>
+      </div>
     </form>
-  );
-}
-
-function Input({
-  label,
-  name,
-  type,
-  handleChange,
-  setData,
-  value,
-  defaultChecked,
-}) {
-  return (
-    <>
-      <label htmlFor={name}>{label}</label>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        defaultChecked={defaultChecked}
-        onChange={(event) => {
-          handleChange(event.target.value, setData);
-        }}
-      ></input>
-    </>
-  );
-}
-
-function InputCheckbox({
-  label,
-  name,
-  handleCheckbox,
-  value,
-  isChecked,
-  setChecked,
-}) {
-  return (
-    <>
-      <label htmlFor={name}>{label}</label>
-      <input
-        key={Math.random()}
-        type={"checkbox"}
-        name={name}
-        value={value}
-        checked={isChecked}
-        onChange={() => {
-          handleCheckbox(setChecked, isChecked);
-        }}
-      ></input>
-    </>
   );
 }
