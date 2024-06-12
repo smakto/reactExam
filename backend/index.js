@@ -10,8 +10,7 @@ const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
-const connectionString =
-  "mongodb+srv://raizyssarunas:mongoPSWORD@cluster0.gzulqzp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const connectionString = process.env.CONNECTIONSTRING;
 
 const client = new MongoClient(connectionString);
 
@@ -21,7 +20,7 @@ let db;
 async function connect() {
   try {
     conn = await client.connect();
-    db = conn.db("reactExamDB");
+    db = conn.db(process.env.DATABASE);
   } catch (e) {
     console.error(e);
   }
@@ -31,8 +30,19 @@ connect();
 
 app.get("/games", async (req, res) => {
   try {
-    let collection = await db.collection("gamesMain");
+    let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find().toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+app.get("/games/:id", async (req, res) => {
+  try {
+    let objectedId = new ObjectId(req.params.id);
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection.find({ _id: objectedId }).toArray();
     res.send(results).status(200);
   } catch (e) {
     res.json(e);
@@ -43,7 +53,7 @@ app.post("/games", async (req, res) => {
   try {
     const newGame = req.body;
     console.log(req.body);
-    let collection = await db.collection("gamesMain");
+    let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.insertOne(newGame);
     res.json({ success: true });
   } catch (e) {
@@ -54,7 +64,7 @@ app.post("/games", async (req, res) => {
 app.delete("/games/delete/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
-    let collection = await db.collection("gamesMain");
+    let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.deleteOne({
       _id: objectedId,
     });
@@ -64,13 +74,14 @@ app.delete("/games/delete/:id", async (req, res) => {
   }
 });
 
-app.patch("/games/edit/:id", async (req, res) => {
+app.patch("/games/editnote/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
-    let collection = await db.collection("gamesMain");
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    console.log(req.body);
     let result = await collection.findOneAndUpdate(
       { _id: objectedId },
-      { $set: req.body },
+      { $set: { note: req.body } },
       { returnOriginal: false }
     );
     res.status(200).json({ message: "success" });

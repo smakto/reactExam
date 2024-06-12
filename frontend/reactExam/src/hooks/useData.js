@@ -33,8 +33,8 @@ export function useData(url) {
     });
   }
 
-  function patchData(gameId, patchedData) {
-    fetch(`http://localhost:3000/games/delete/${gameId}`, {
+  function patchData(editRoute, gameId, patchedData) {
+    fetch(`http://localhost:3000/games/${editRoute}/${gameId}`, {
       method: "PATCH",
       body: JSON.stringify(patchedData),
       headers: {
@@ -43,5 +43,5 @@ export function useData(url) {
     });
   }
 
-  return { dataSet, loaded, addData, deleteData };
+  return { dataSet, loaded, addData, deleteData, patchData };
 }
