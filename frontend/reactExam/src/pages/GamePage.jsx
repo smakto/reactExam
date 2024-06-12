@@ -15,6 +15,10 @@ function GameCard({ data, dataDel }) {
   return data.map((game) => {
     return (
       <div key={game._id} className="gameCard">
+        <div className="cardImg">
+          <img src={game.img} alt="gameLogo" />
+        </div>
+
         <h2>
           {game.name} ({game.releaseDate})
         </h2>

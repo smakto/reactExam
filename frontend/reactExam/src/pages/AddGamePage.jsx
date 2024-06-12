@@ -154,7 +154,6 @@ export function AddGamePage() {
           type="submit"
           value={"Add game"}
           onClick={(event) => {
-            event.preventDefault();
             handleSubmit();
           }}
         ></input>

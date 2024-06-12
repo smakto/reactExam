@@ -1,22 +1,40 @@
 .gameCardsContainer {
   margin: 0 auto;
   width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   margin-top: 25px;
   color: #3d52a0;
+  columns: 4;
+  column-width: 100%;
 }
 
 .gameCard {
   background-color: #ede8f5;
-  width: 30%;
-  border: 1px solid gray;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  page-break-inside: avoid;
+}
+
+.cardImg {
+  text-align: center;
+}
+
+.cardImg img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .gameCard h2 {
   text-align: center;
+  color: black;
+  margin: 5px 10px;
+}
+
+.gameCard h4 {
+  margin: 5px 15px;
 }
 
 .gameCard button {
@@ -38,8 +56,21 @@
   justify-content: space-evenly;
   height: 25px;
   align-items: center;
+  margin-top: 10px;
 }
 
 .gameCardButtonContainer {
   text-align: right;
+}
+
+.fa-playstation {
+  color: blue;
+}
+
+.fa-xbox {
+  color: green;
+}
+
+.fa-computer {
+  color: black;
 }
