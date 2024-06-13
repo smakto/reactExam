@@ -7,11 +7,8 @@ import { useCallback, useEffect, useState } from "react";
 export function SingleGamePage() {
   const params = useParams();
   const { dataSet, loaded, patchData } = useData(`games/${params.id}`);
-
   const game = dataSet[0];
-
   const [gameNote, setGameNote] = useState("");
-
   const [noteCount, setNoteCount] = useState(1);
 
   useEffect(() => {
@@ -19,17 +16,10 @@ export function SingleGamePage() {
       const keysArray = Object.keys(game);
       if (keysArray.includes("note")) {
         const notesKeys = Object.keys(game.note);
-        // console.log(notesKeys.length + 1);
         setNoteCount(notesKeys.length + 1);
       } else setNoteCount(1);
     }
   }, [game]);
-
-  console.log("Notecount", noteCount);
-  console.log(game);
-  //   console.log(gameNote);
-
-  console.log(game);
 
   function handleGameNote(input) {
     setGameNote(input);
