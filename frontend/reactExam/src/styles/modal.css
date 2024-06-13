@@ -40,3 +40,65 @@
 .menuModal a {
   text-decoration: none;
 }
+
+.gameCardModalOff {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.gameCardModalOn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.deleteCardConfirmation {
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 400px;
+  height: 150px;
+  background-color: #ede8f5;
+  box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
+    rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
+}
+
+.deleteCardConfirmation button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  padding: 5px 10px;
+}
+
+.deleteCardConfirmation button:first-of-type:hover {
+  background-color: red;
+}
+
+.deleteCardConfirmation button:last-of-type:hover {
+  background-color: green;
+}
+
+.deleteCardConfirmation button:hover {
+  cursor: pointer;
+}
+
+.deleteConfirmationButtons {
+  display: flex;
+  justify-content: space-around;
+}

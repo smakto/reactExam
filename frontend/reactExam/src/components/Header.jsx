@@ -38,6 +38,9 @@ export function Header() {
           modalClassName={modalDisplay ? "modalOn" : "modalOff"}
           modalContent={
             <div className="menuModal">
+              <Link to={"/games"}>
+                <p>All games</p>
+              </Link>
               <Link to={"/psgames"}>
                 <p>Playstation games</p>
               </Link>
