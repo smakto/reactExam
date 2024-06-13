@@ -2,8 +2,8 @@ import { useData } from "../hooks/useData";
 import { GameCard } from "../components/GameCard";
 import "../styles/gameCards.css";
 
-export function MainPage() {
-  const { dataSet, deleteData } = useData("games");
+export function MainPage({ route }) {
+  const { dataSet, deleteData } = useData(route);
 
   return (
     <div className="gameCardsContainer">

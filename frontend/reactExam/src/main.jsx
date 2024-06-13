@@ -23,7 +23,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/games",
-        element: <MainPage />,
+        element: <MainPage route={"games"} />,
+      },
+      {
+        path: "/psgames",
+        element: <MainPage route={"psgames"} />,
+      },
+      {
+        path: "/xboxgames",
+        element: <MainPage route={"xboxgames"} />,
+      },
+      {
+        path: "/pcgames",
+        element: <MainPage route={"pcgames"} />,
       },
       {
         path: "/addGame",

@@ -38,6 +38,38 @@ app.get("/games", async (req, res) => {
   }
 });
 
+app.get("/psgames", async (req, res) => {
+  try {
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection
+      .find({ "platform.Playstation": 1 })
+      .toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+app.get("/xboxgames", async (req, res) => {
+  try {
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection.find({ "platform.Xbox": 1 }).toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+app.get("/pcgames", async (req, res) => {
+  try {
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection.find({ "platform.PC": 1 }).toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
 app.get("/games/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);

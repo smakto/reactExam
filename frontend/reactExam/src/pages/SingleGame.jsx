@@ -10,13 +10,15 @@ export function SingleGamePage() {
   const game = dataSet[0];
   const [gameNote, setGameNote] = useState("");
   const [noteCount, setNoteCount] = useState(1);
+  const [notesKeys, setNoteKeys] = useState("");
 
   useEffect(() => {
     if (game) {
       const keysArray = Object.keys(game);
       if (keysArray.includes("note")) {
-        const notesKeys = Object.keys(game.note);
-        setNoteCount(notesKeys.length + 1);
+        const notesKeysArray = Object.keys(game.note);
+        setNoteKeys(notesKeysArray);
+        setNoteCount(notesKeysArray.length + 1);
       } else setNoteCount(1);
     }
   }, [game]);
@@ -24,6 +26,7 @@ export function SingleGamePage() {
   function handleGameNote(input) {
     setGameNote(input);
   }
+  console.log(notesKeys);
 
   function handleNoteAdd() {
     const updatedNotes = {
@@ -35,50 +38,66 @@ export function SingleGamePage() {
     window.location.reload();
   }
 
+  console.log(typeof notesKeys);
+
   return (
     loaded && (
-      <div className="singleGameDiv">
-        <div className="singleGameLeft">
-          <h1>{game.name}</h1>
-          <div className="singleGameInfo">
-            <h4>Released: {game.releaseDate}</h4>
-            <h4>Genre: {game.genre}</h4>
-            <h4>Multiplayer: {game.multiplayer}</h4>
-            <h4>Personal game status: {game.status}</h4>
-            <h4>
-              Available on:
-              {
-                <Platforms
-                  source={game}
-                  containerClasses={"platformIcons singleGamePlatforms"}
-                />
-              }
-            </h4>
+      <>
+        <div className="singleGameDiv">
+          <div className="singleGameLeft">
+            <h1>{game.name}</h1>
+            <div className="singleGameInfo">
+              <h4>Released: {game.releaseDate}</h4>
+              <h4>Genre: {game.genre}</h4>
+              <h4>Multiplayer: {game.multiplayer}</h4>
+              <h4>Personal game status: {game.status}</h4>
+              <h4>
+                Available on:
+                {
+                  <Platforms
+                    source={game}
+                    containerClasses={"platformIcons singleGamePlatforms"}
+                  />
+                }
+              </h4>
+            </div>
+            <div className="noteInputContainer">
+              <label htmlFor="gameNotesArea">
+                <h4>New note:</h4>
+              </label>{" "}
+              <textarea
+                name="gameNotesArea"
+                className="gameNotesArea"
+                onChange={(event) => {
+                  handleGameNote(event.target.value);
+                }}
+              />
+              <button
+                onClick={() => {
+                  handleNoteAdd();
+                }}
+              >
+                Add note
+              </button>
+            </div>
           </div>
-          <div className="noteInputContainer">
-            <label htmlFor="gameNotesArea">
-              <h4>New note:</h4>
-            </label>{" "}
-            <textarea
-              name="gameNotesArea"
-              className="gameNotesArea"
-              onChange={(event) => {
-                handleGameNote(event.target.value);
-              }}
-            />
-            <button
-              onClick={() => {
-                handleNoteAdd();
-              }}
-            >
-              Add note
-            </button>
+          <div className="singleGameRight">
+            <img src={game.img} />
           </div>
         </div>
-        <div className="singleGameRight">
-          <img src={game.img} />
-        </div>
-      </div>
+        {typeof notesKeys !== "string" && (
+          <div className="singleGameNotes">
+            {" "}
+            {notesKeys.map((index) => {
+              return (
+                <div key={index} className="gameNote">
+                  <p>{game.note[index]}</p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </>
     )
   );
 }
