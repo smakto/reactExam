@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import "../styles/pageHead.css";
 import { useGeneralContext } from "../contexts/useContext";
+import { Input } from "./Inputs";
 
-export function PageHead() {
+export function PageHead({ handleSearchInput }) {
   const urlPath = window.location.pathname;
-
   const myContext = useGeneralContext();
 
   function handleClick(currentValue, buttonOn, buttonOff) {
@@ -29,9 +29,16 @@ export function PageHead() {
     });
   }
 
+  function handleChange(inputData) {
+    myContext.dispatch({
+      type: "GAMESEARCH",
+      gameToFind: inputData,
+    });
+  }
+
   return (
-    <>
-      <div className="pageHeadContainer">
+    <div className="pageHeadContainer">
+      <div className="pageHeadLeft">
         <h2 className="gameCategoryHead">
           {urlPath === ("/games" || "/games/")
             ? "All games"
@@ -76,7 +83,15 @@ export function PageHead() {
           }`}
         />
       </div>
-    </>
+      <div className="pageHeadRight">
+        <label htmlFor="searchInput">Search game name</label>
+        <input
+          type="text"
+          name="searchInput"
+          onChange={handleSearchInput}
+        ></input>
+      </div>
+    </div>
   );
 }
 

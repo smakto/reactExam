@@ -4,20 +4,22 @@ import { PageHead } from "../components/PageHead";
 import "../styles/gameCards.css";
 import { useEffect, useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
+import { useSearch } from "../hooks/useSearch";
+
+function searchFunct(element, inputValue) {
+  return element.name.toLowerCase().includes(inputValue.toLowerCase());
+}
 
 export function MainPage({ route }) {
   const { dataSet, deleteData, loaded } = useData(route);
+  const [dataToRender, setDataToRender] = useState("");
   const myContext = useGeneralContext();
 
-  const [dataToRender, setDataToRender] = useState("");
-
-  // console.log(dataToRender);
+  const [data, handleInput] = useSearch(dataToRender, searchFunct);
 
   useEffect(() => {
     loaded && setDataToRender(dataSet);
   }, [loaded, dataSet]);
-
-  console.log(dataSet);
 
   useEffect(() => {
     if (myContext.wishlist) {
@@ -33,9 +35,9 @@ export function MainPage({ route }) {
 
   return (
     <>
-      <PageHead />
+      <PageHead handleSearchInput={handleInput} />
       <div className="gameCardsContainer">
-        <GameCard data={dataToRender} dataDel={deleteData} />
+        <GameCard data={data} dataDel={deleteData} />
       </div>
     </>
   );

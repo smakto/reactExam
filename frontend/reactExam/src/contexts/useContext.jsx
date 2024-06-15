@@ -5,12 +5,18 @@ const defaultValues = {
   completed: 0,
   playing: 0,
   allgames: 1,
+  gameSearch: "",
 };
 
 const GeneralContext = createContext();
 
 function reducerActions(state, action) {
   switch (action.type) {
+    case "GAMESEARCH":
+      return {
+        ...state,
+        gameSearch: action.gameToFind,
+      };
     case "WISHLISTOFF":
       return {
         ...state,
