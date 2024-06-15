@@ -11,6 +11,7 @@ import { MainPage } from "./pages/MainPage";
 import "./index.css";
 import { AddGamePage } from "./pages/AddGamePage";
 import { SingleGamePage } from "./pages/SingleGame";
+import { GeneralContextProvider } from "./contexts/useContext";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GeneralContextProvider>
+      <RouterProvider router={router} />
+    </GeneralContextProvider>
   </React.StrictMode>
 );
 

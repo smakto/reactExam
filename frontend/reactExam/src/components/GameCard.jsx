@@ -29,9 +29,9 @@ export function GameCard({ data, dataDel }) {
           />
         }
       />
-      {data.map((game) => {
-        return (
-          <>
+      {data &&
+        data.map((game) => {
+          return (
             <div
               key={game._id}
               className="gameCard"
@@ -61,9 +61,8 @@ export function GameCard({ data, dataDel }) {
                 </button>
               </div>
             </div>
-          </>
-        );
-      })}
+          );
+        })}
     </>
   );
 }

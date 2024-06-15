@@ -43,5 +43,5 @@ export function useData(url) {
     });
   }
 
-  return { dataSet, loaded, addData, deleteData, patchData };
+  return { dataSet, loaded, addData, deleteData, patchData, setNewDataset };
 }
