@@ -12,7 +12,7 @@ function searchFunct(element, inputValue) {
 
 export function MainPage({ route }) {
   const { dataSet, deleteData, loaded } = useData(route);
-  const [dataToRender, setDataToRender] = useState("");
+  const [dataToRender, setDataToRender] = useState([]);
   const myContext = useGeneralContext();
 
   const [data, handleInput] = useSearch(dataToRender, searchFunct);
@@ -30,6 +30,15 @@ export function MainPage({ route }) {
       setDataToRender(dataSet.filter((game) => game.status === "In-progress"));
     } else if (myContext.allgames) {
       setDataToRender(dataSet);
+    } else if (
+      !myContext.wishlist &&
+      !myContext.completed &&
+      !myContext.playing &&
+      !myContext.allgames
+    ) {
+      myContext.dispatch({
+        type: "ALLGAMESON",
+      });
     }
   }, [myContext]);
 

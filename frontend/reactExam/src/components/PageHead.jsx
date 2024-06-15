@@ -29,12 +29,12 @@ export function PageHead({ handleSearchInput }) {
     });
   }
 
-  function handleChange(inputData) {
-    myContext.dispatch({
-      type: "GAMESEARCH",
-      gameToFind: inputData,
-    });
-  }
+  // function handleChange(inputData) {
+  //   myContext.dispatch({
+  //     type: "GAMESEARCH",
+  //     gameToFind: inputData,
+  //   });
+  // }
 
   return (
     <div className="pageHeadContainer">

@@ -2,7 +2,10 @@ import { useParams } from "react-router-dom";
 import { useData } from "../hooks/useData";
 import { Platforms } from "../components/Platforms";
 import "../styles/singleGamePage.css";
+import "../styles/modal.css";
 import { useCallback, useEffect, useState } from "react";
+import { Modal } from "../components/Modal";
+import { Input } from "../components/Inputs";
 
 export function SingleGamePage() {
   const params = useParams();
@@ -11,6 +14,10 @@ export function SingleGamePage() {
   const [gameNote, setGameNote] = useState("");
   const [noteCount, setNoteCount] = useState(1);
   const [notesKeys, setNoteKeys] = useState("");
+
+  const [modalDisplay, setModalDisplay] = useState(false);
+
+  const [newStatus, setNewStatus] = useState("");
 
   useEffect(() => {
     if (game) {
@@ -26,7 +33,6 @@ export function SingleGamePage() {
   function handleGameNote(input) {
     setGameNote(input);
   }
-  console.log(notesKeys);
 
   function handleNoteAdd() {
     const updatedNotes = {
@@ -38,11 +44,55 @@ export function SingleGamePage() {
     window.location.reload();
   }
 
-  console.log(typeof notesKeys);
+  function handleStatusChange() {
+    const updatedStatus = {
+      status: newStatus,
+    };
+    patchData("editstatus", params.id, updatedStatus);
+    console.log(updatedStatus);
+  }
 
   return (
     loaded && (
       <>
+        <Modal
+          modalClassName={
+            modalDisplay ? "statusEditModalOn" : "statusEditModalOff"
+          }
+          modalContent={
+            <div className="newStatusModal">
+              <select
+                name="newStatusSelect"
+                id="newStatusSelect"
+                onChange={(event) => {
+                  setNewStatus(event.target.value);
+                }}
+              >
+                <option defaultChecked value="Wishlist">
+                  Wishlist
+                </option>
+                <option value="In-progress">In-progress</option>
+                <option value="Done">Done</option>
+              </select>
+              <button
+                onClick={() => {
+                  handleStatusChange();
+                  setModalDisplay(false);
+                  window.location.reload();
+                }}
+              >
+                Confirm
+              </button>
+              <button
+                onClick={() => {
+                  setModalDisplay(!modalDisplay);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          }
+        />
         <div className="singleGameDiv">
           <div className="singleGameLeft">
             <h1>{game.name}</h1>
@@ -50,7 +100,19 @@ export function SingleGamePage() {
               <h4>Released: {game.releaseDate}</h4>
               <h4>Genre: {game.genre}</h4>
               <h4>Multiplayer: {game.multiplayer}</h4>
-              <h4>Personal game status: {game.status}</h4>
+              <div className="editStatusContainer">
+                <h4>Game status: {game.status}</h4>
+                <button
+                  className="editStatusButton"
+                  onClick={() => {
+                    setModalDisplay(!modalDisplay);
+                    // console.log(modalDisplay);+++
+                  }}
+                >
+                  Edit status
+                </button>
+              </div>
+
               <h4>
                 Available on:
                 {

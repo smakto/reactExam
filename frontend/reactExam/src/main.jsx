@@ -59,10 +59,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 // Page to show all games. +++
-// Platform selector
-// Multiplayer selector
-// Status selector
-// Edit modal to change status
-// Padaryti veikiantį search
+// Platform selector +++
+// Status selector +++
+// Edit modal to change status +++
+// Padaryti veikiantį search +++
 // Onclick - nuveda į game page. +++
-// Error handling
+
+// Footer (~0,5h) (easy)
+// Multiplayer category selector (add to menu) (easy)
+// Note delete/edit (~1h) (mid)
+
+// Review & complete design (~4h) (mid)
+
+// Responsive design (~4h) (mid/hard)
+
+// Iškelti reusable komponenetus (~2h) (mid)
+// Review error handling (~1h) (easy)

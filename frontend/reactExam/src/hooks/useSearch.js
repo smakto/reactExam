@@ -5,8 +5,9 @@ export function useSearch(initValue, searchFunct) {
   const [myList, setMyList] = useState(initValue);
 
   useEffect(() => {
-    if (myList)
+    if (initValue.length > 0) {
       setMyList(initValue.filter((item) => searchFunct(item, inputValue)));
+    }
   }, [searchFunct, initValue, inputValue]);
 
   function setInputEventValue(e) {
