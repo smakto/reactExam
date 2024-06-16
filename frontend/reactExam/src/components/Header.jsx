@@ -50,6 +50,9 @@ export function Header() {
               <Link to={"/pcgames"}>
                 <p>PC games</p>
               </Link>
+              <Link to={"/multiplayer"}>
+                <p>Multiplayer games</p>
+              </Link>
             </div>
           }
         />

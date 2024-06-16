@@ -16,10 +16,15 @@ footer > div {
   align-items: center;
 }
 
-footer img:not(:first-of-type) {
-  height: 35px;
+footer a {
+  display: flex;
+  align-items: center;
 }
 
-footer img:first-of-type {
+footer img {
+  height: 23px;
+}
+
+footer img.ignLogo {
   height: 20px;
 }

@@ -15,20 +15,31 @@ export function SingleGamePage() {
   const [noteCount, setNoteCount] = useState(1);
   const [notesKeys, setNoteKeys] = useState("");
 
-  const [modalDisplay, setModalDisplay] = useState(false);
+  const [addNoteModal, setModalDisplay] = useState(false);
+  const [editNoteModal, setEditModalDisplay] = useState(false);
+  const [deleteNoteModal, setDeleteNoteModal] = useState(false);
 
   const [newStatus, setNewStatus] = useState("");
+  const [noteToEdit, setNoteToEdit] = useState({ noteKey: 0, noteText: "" });
 
   useEffect(() => {
     if (game) {
       const keysArray = Object.keys(game);
       if (keysArray.includes("note")) {
         const notesKeysArray = Object.keys(game.note);
+
+        notesKeysArray;
+
         setNoteKeys(notesKeysArray);
         setNoteCount(notesKeysArray.length + 1);
       } else setNoteCount(1);
     }
   }, [game]);
+
+  useEffect(() => {
+    document.body.style.overflow =
+      addNoteModal || editNoteModal ? "hidden" : "unset";
+  }, [addNoteModal, editNoteModal]);
 
   function handleGameNote(input) {
     setGameNote(input);
@@ -40,6 +51,16 @@ export function SingleGamePage() {
       [noteCount]: gameNote,
     };
 
+    patchData("addnote", params.id, updatedNotes);
+    window.location.reload();
+  }
+
+  function handleNoteEdit() {
+    const updatedNotes = {
+      ...game.note,
+      [noteToEdit.noteKey]: noteToEdit.noteText,
+    };
+
     patchData("editnote", params.id, updatedNotes);
     window.location.reload();
   }
@@ -49,7 +70,6 @@ export function SingleGamePage() {
       status: newStatus,
     };
     patchData("editstatus", params.id, updatedStatus);
-    console.log(updatedStatus);
   }
 
   return (
@@ -57,12 +77,12 @@ export function SingleGamePage() {
       <>
         <Modal
           modalClassName={
-            modalDisplay ? "statusEditModalOn" : "statusEditModalOff"
+            addNoteModal ? "statusEditModalOn" : "statusEditModalOff"
           }
           modalContent={
             <div
               className={
-                modalDisplay ? "newStatusModalOn" : "newStatusModalOff"
+                addNoteModal ? "newStatusModalOn" : "newStatusModalOff"
               }
             >
               <select
@@ -89,7 +109,7 @@ export function SingleGamePage() {
               </button>
               <button
                 onClick={() => {
-                  setModalDisplay(!modalDisplay);
+                  setModalDisplay(!addNoteModal);
                 }}
               >
                 Cancel
@@ -109,8 +129,7 @@ export function SingleGamePage() {
                 <button
                   className="editStatusButton"
                   onClick={() => {
-                    setModalDisplay(!modalDisplay);
-                    // console.log(modalDisplay);+++
+                    setModalDisplay(!addNoteModal);
                   }}
                 >
                   Edit status
@@ -153,13 +172,88 @@ export function SingleGamePage() {
         </div>
         {typeof notesKeys !== "string" && (
           <div className="singleGameNotes">
-            {" "}
+            <Modal
+              modalClassName={
+                editNoteModal ? "gameNoteModalOn" : "gameNoteModalOff"
+              }
+              modalContent={
+                <>
+                  <textarea
+                    defaultValue={noteToEdit.noteText}
+                    onChange={(event) => {
+                      {
+                        setNoteToEdit({
+                          noteKey: noteToEdit.noteKey,
+                          noteText: event.target.value,
+                        });
+                      }
+                    }}
+                  ></textarea>
+                  <button
+                    onClick={() => {
+                      handleNoteEdit();
+                    }}
+                  >
+                    Confirm
+                  </button>
+                  <button onClick={() => setEditModalDisplay(false)}>
+                    Cancel
+                  </button>
+                </>
+              }
+            />
+            <Modal
+              modalClassName={
+                deleteNoteModal ? "deleteNoteModalOn" : "deleteNoteModalOff"
+              }
+              modalContent={
+                <>
+                  <p>Are you sure?</p>
+                  <button
+                    onClick={() => {
+                      handleNoteEdit();
+                    }}
+                  >
+                    Confirm
+                  </button>
+                  <button onClick={() => setDeleteNoteModal(false)}>
+                    Cancel
+                  </button>
+                </>
+              }
+            />
             {notesKeys.map((index) => {
-              return (
-                <div key={index} className="gameNote">
-                  <p>{game.note[index]}</p>
-                </div>
-              );
+              if (game.note[index].length > 0) {
+                return (
+                  <div key={index} className="gameNote">
+                    <p>{game.note[index]}</p>
+                    <div className="notesButtons">
+                      <button
+                        onClick={() => {
+                          setNoteToEdit({
+                            noteKey: index,
+                            noteText: game.note[index],
+                          });
+                          setEditModalDisplay(!editNoteModal);
+                        }}
+                      >
+                        Edit note
+                      </button>
+                      <button
+                        onClick={() => {
+                          setNoteToEdit({
+                            noteKey: index,
+                            noteText: "",
+                          });
+                          setDeleteNoteModal(!deleteNoteModal);
+                        }}
+                      >
+                        Delete note
+                      </button>
+                    </div>
+                  </div>
+                );
+              }
             })}
           </div>
         )}

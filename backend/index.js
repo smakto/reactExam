@@ -70,6 +70,16 @@ app.get("/pcgames", async (req, res) => {
   }
 });
 
+app.get("/multiplayer", async (req, res) => {
+  try {
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection.find({ multiplayer: "Yes" }).toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
 app.get("/games/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
@@ -103,6 +113,22 @@ app.delete("/games/delete/:id", async (req, res) => {
     res.send(results).status(200);
   } catch (e) {
     res.json(e);
+  }
+});
+
+app.patch("/games/addnote/:id", async (req, res) => {
+  try {
+    let objectedId = new ObjectId(req.params.id);
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    console.log(req.body);
+    let result = await collection.findOneAndUpdate(
+      { _id: objectedId },
+      { $set: { note: req.body } },
+      { returnOriginal: false }
+    );
+    res.status(200).json({ message: "success" });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 

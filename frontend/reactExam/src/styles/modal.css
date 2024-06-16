@@ -4,7 +4,7 @@
   right: 15px;
   height: 100%;
   top: 0;
-  width: 30%;
+  width: 20%;
   transition: opacity 0.3s ease-in;
 }
 
@@ -54,16 +54,18 @@
 }
 
 .gameCardModalOn {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
+  /* bottom: 0; */
   width: 30%;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
+  top: 0;
+  right: 0;
   left: 0;
   right: 0;
   margin: auto;
@@ -104,10 +106,7 @@
 }
 
 .statusEditModalOn {
-  /* width: 100%;
-  height: auto;
-  z-index: 999; */
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,9 +122,6 @@
 }
 
 .statusEditModalOff {
-  /* width: 0;
-  height: 0;
-  opacity: 0; */
   position: absolute;
   bottom: 0;
   width: 0;
@@ -151,4 +147,60 @@
 
 .newStatusModalOff {
   display: none;
+}
+
+.gameNoteModalOn {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.gameNoteModalOff {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.deleteNoteModalOn {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.deleteNoteModalOff {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }

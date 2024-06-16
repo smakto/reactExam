@@ -39,6 +39,10 @@ const router = createBrowserRouter([
         element: <MainPage route={"pcgames"} />,
       },
       {
+        path: "/multiplayer",
+        element: <MainPage route={"multiplayer"} />,
+      },
+      {
         path: "/addGame",
         element: <AddGamePage />,
       },

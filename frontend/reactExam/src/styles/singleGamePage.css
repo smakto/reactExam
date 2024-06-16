@@ -73,3 +73,9 @@
   font-family: "Tiny5", sans-serif;
   background-color: #ede8f5;
 }
+
+.gameNote {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
