@@ -1,0 +1,25 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0px auto;
+  background-color: #7091e6;
+  border-top: 1px solid #ede8f5;
+}
+
+footer > div {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer img:not(:first-of-type) {
+  height: 35px;
+}
+
+footer img:first-of-type {
+  height: 20px;
+}

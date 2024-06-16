@@ -137,7 +137,8 @@
   margin: auto;
 }
 
-.newStatusModal {
+.newStatusModalOn {
+  display: block;
   padding: 15px;
   border-radius: 5px;
   text-align: center;
@@ -146,4 +147,8 @@
   background-color: #ede8f5;
   box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
     rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
+}
+
+.newStatusModalOff {
+  display: none;
 }

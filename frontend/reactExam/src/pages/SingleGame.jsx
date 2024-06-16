@@ -60,7 +60,11 @@ export function SingleGamePage() {
             modalDisplay ? "statusEditModalOn" : "statusEditModalOff"
           }
           modalContent={
-            <div className="newStatusModal">
+            <div
+              className={
+                modalDisplay ? "newStatusModalOn" : "newStatusModalOff"
+              }
+            >
               <select
                 name="newStatusSelect"
                 id="newStatusSelect"
