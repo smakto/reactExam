@@ -1,206 +1,154 @@
+.gameCardModalOn,
+.statusEditModalOn,
+.noteEditModalOn,
+.deleteNoteModalOn {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.gameCardModalOff,
+.statusEditModalOff,
+.noteEditModalOff,
+.deleteNoteModalOff {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 0;
+}
+
+.menuModalOn p {
+  margin: 5px;
+  font-size: smaller;
+  color: black;
+}
+
+.menuModalOn a {
+  text-decoration: none;
+}
+
+.deleteCardConfirmationOn,
+.newStatusModalOn,
+.noteEditConfirmationOn,
+.deleteNoteConfirmOn {
+  margin: 0 auto;
+  border: 1px solid #ede8f5;
+  background-color: #7091e6;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -13px 15px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -26px 20px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -59px 30px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 10px 8px, rgba(0, 0, 0, 0.09) 0px 22px 10px;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  min-width: 400px;
+  min-height: 150px;
+}
+
+.deleteCardConfirmationOff {
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ede8f5;
+  box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
+    rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
+}
+
+.deleteCardConfirmationOn button,
+.newStatusButtons button,
+.noteEditConfirmationOn button,
+.noteDeleteConfirmationButtons button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  padding: 5px 10px;
+  margin-top: 5px;
+}
+
+.deleteCardConfirmationOn button:first-of-type:hover,
+.newStatusButtons button:first-of-type:hover,
+.noteEditConfirmationOn button:first-of-type:hover {
+  background-color: red;
+}
+
+.deleteCardConfirmationOn button:last-of-type:hover,
+.newStatusButtons button:last-of-type:hover,
+.noteEditConfirmationOn button:last-of-type:hover,
+.noteDeleteConfirmationButtons button:last-of-type:hover {
+  background-color: green;
+}
+
+.deleteCardConfirmation button:hover,
+.newStatusButtons button:hover,
+.noteEditConfirmationOn button:hover,
+.noteDeleteConfirmationButtons button:last-of-type:hover {
+  cursor: pointer;
+}
+
+.deleteConfirmationButtons,
+.newStatusButtons,
+.noteEditButtons,
+.noteDeleteConfirmationButtons {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.newStatusModalOn select {
+  background-color: #a0b4ef;
+  border: 1px solid #ede8f5;
+  width: 40%;
+}
+
+.newStatusModalOn option {
+  text-align: center;
+}
+
+/* MENU MODAL */
+/* MENU MODAL */
+/* MENU MODAL */
+
 .modalOn {
   display: block;
   position: absolute;
-  right: 15px;
-  height: 100%;
-  top: 0;
-  width: 20%;
-  transition: opacity 0.3s ease-in;
+  right: 0px;
+  right: 13px;
+  top: -2px;
+  width: 15%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
 }
 
-.modalOff {
-  position: absolute;
-  right: 15px;
-  width: 30%;
-  top: 0;
-  height: 0;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.menuModal {
-  height: 100%;
+.menuModalOn {
+  height: 200px;
+  width: 100%;
+  padding: 7px;
+  text-align: center;
   background-color: #ede8f5;
-  border-radius: 5px;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  display: flex;
+  justify-content: space-between;
 }
 
-.menuModal p {
-  margin: 0;
-  font-size: smaller;
-}
-
-.menuModal a {
-  text-decoration: none;
-}
-
-.gameCardModalOff {
-  position: absolute;
-  bottom: 0;
+.modalOff,
+.menuModalOff {
   width: 0;
   height: 0;
   opacity: 0;
-  z-index: 999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.gameCardModalOn {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* bottom: 0; */
-  width: 30%;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  top: 0;
-  right: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.deleteCardConfirmation {
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  width: 400px;
-  height: 150px;
-  background-color: #ede8f5;
-  box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
-    rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
-}
-
-.deleteCardConfirmation button {
-  font-family: "Tiny5", sans-serif;
-  background-color: #ede8f5;
-  padding: 5px 10px;
-}
-
-.deleteCardConfirmation button:first-of-type:hover {
-  background-color: red;
-}
-
-.deleteCardConfirmation button:last-of-type:hover {
-  background-color: green;
-}
-
-.deleteCardConfirmation button:hover {
-  cursor: pointer;
-}
-
-.deleteConfirmationButtons {
-  display: flex;
-  justify-content: space-around;
-}
-
-.statusEditModalOn {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  width: 30%;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.statusEditModalOff {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: 999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.newStatusModalOn {
-  display: block;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  width: 400px;
-  height: 150px;
-  background-color: #ede8f5;
-  box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
-    rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
-}
-
-.newStatusModalOff {
-  display: none;
-}
-
-.gameNoteModalOn {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  width: 30%;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.gameNoteModalOff {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.deleteNoteModalOn {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  width: 30%;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.deleteNoteModalOff {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 }

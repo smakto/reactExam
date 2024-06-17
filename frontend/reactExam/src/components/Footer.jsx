@@ -23,13 +23,13 @@ export function Footer() {
           target="_blank"
         >
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/2/2b/PlayStation_Store.png"
+            src="https://www.pngkey.com/png/full/236-2366469_playstation-logos-brands-and-logotypes-playstation-store-logo.png"
             alt="psLogo"
           />
         </a>
         <a href="https://www.xbox.com/en-US/xbox-game-pass" target="_blank">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Xbox_Game_Pass_2020_logo_-_colored_version.svg/640px-Xbox_Game_Pass_2020_logo_-_colored_version.svg.png"
+            src="https://cdn.freebiesupply.com/logos/large/2x/xbox-2-logo-black-and-white.png"
             alt="xboxGamePassLogo"
           />
         </a>

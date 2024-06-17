@@ -29,13 +29,6 @@ export function PageHead({ handleSearchInput }) {
     });
   }
 
-  // function handleChange(inputData) {
-  //   myContext.dispatch({
-  //     type: "GAMESEARCH",
-  //     gameToFind: inputData,
-  //   });
-  // }
-
   return (
     <div className="pageHeadContainer">
       <div className="pageHeadLeft">
@@ -46,7 +39,10 @@ export function PageHead({ handleSearchInput }) {
             ? "Playstation games"
             : urlPath === ("/xboxgames" || "/xboxgames/")
             ? "Xbox games"
-            : urlPath === ("/pcgames" || "/pcgames/") && "PC games"}
+            : urlPath === ("/pcgames" || "/pcgames/")
+            ? "PC games"
+            : urlPath === ("/multiplayer" || "/multiplayer/") &&
+              "Multiplayer games"}
         </h2>
         <ToggleButtons
           buttonText={"Currently playing"}
@@ -84,7 +80,7 @@ export function PageHead({ handleSearchInput }) {
         />
       </div>
       <div className="pageHeadRight">
-        <label htmlFor="searchInput">Search game name</label>
+        <label htmlFor="searchInput">Search game name:</label>
         <input
           type="text"
           name="searchInput"

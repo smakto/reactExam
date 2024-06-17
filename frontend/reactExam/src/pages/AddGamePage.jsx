@@ -56,107 +56,114 @@ export function AddGamePage() {
 
   return (
     <form className="addGameForm">
-      <Input
-        type={"text"}
-        label={"Game title"}
-        name={"gameTitle"}
-        handleChange={handleChange}
-        setData={setGameTitle}
-      />
-      <Input
-        type={"number"}
-        label={"Release year"}
-        name={"releaseDate"}
-        handleChange={handleChange}
-        setData={setReleaseDate}
-      />
-      <Input
-        type={"text"}
-        label={"Genre"}
-        name={"genre"}
-        handleChange={handleChange}
-        setData={setGameGenre}
-      />
-      <Input
-        type={"text"}
-        label={"Image URL"}
-        name={"image"}
-        handleChange={handleChange}
-        setData={setGameImage}
-      />
-      <div className="multiplayerSelector">
-        <label htmlFor={"isMultiplayer"}>Multiplayer available?</label>
+      <div className="addGameContainer">
         <Input
-          type={"radio"}
-          label={"Yes"}
-          name={"isMultiplayer"}
-          value={"Yes"}
+          type={"text"}
+          label={"Game title"}
+          name={"gameTitle"}
           handleChange={handleChange}
-          setData={setIsMultiplayer}
+          setData={setGameTitle}
         />
         <Input
-          type={"radio"}
-          label={"No"}
-          name={"isMultiplayer"}
-          value={"No"}
-          defaultChecked={true}
+          type={"number"}
+          label={"Release year"}
+          name={"releaseDate"}
           handleChange={handleChange}
-          setData={setIsMultiplayer}
+          setData={setReleaseDate}
         />
-      </div>
+        <Input
+          type={"text"}
+          label={"Genre"}
+          name={"genre"}
+          handleChange={handleChange}
+          setData={setGameGenre}
+        />
+        <Input
+          type={"text"}
+          label={"Image URL"}
+          name={"image"}
+          handleChange={handleChange}
+          setData={setGameImage}
+        />
+        <div className="multiplayerSelector">
+          <label htmlFor={"isMultiplayer"}>Multiplayer available?</label>
+          <div className="platformAndMultiplayerDiv">
+            <Input
+              type={"radio"}
+              label={"Yes"}
+              name={"isMultiplayer"}
+              value={"Yes"}
+              handleChange={handleChange}
+              setData={setIsMultiplayer}
+            />
+            <Input
+              type={"radio"}
+              label={"No"}
+              name={"isMultiplayer"}
+              value={"No"}
+              defaultChecked={true}
+              handleChange={handleChange}
+              setData={setIsMultiplayer}
+            />
+          </div>
+        </div>
 
-      <div className="platformSelector">
-        <label htmlFor={"availablePlatforms"}>Platforms available?</label>
+        <div className="platformSelector">
+          <label htmlFor={"availablePlatforms"}>Platforms available:</label>
+          <div>
+            <InputCheckbox
+              label={"Playstation"}
+              name={"availablePlatforms"}
+              value={false}
+              handleCheckbox={handleCheckbox}
+              isChecked={onPlaystation}
+              setChecked={setOnPlaystation}
+            />
+            <InputCheckbox
+              label={"Xbox"}
+              name={"availablePlatforms"}
+              value={false}
+              handleCheckbox={handleCheckbox}
+              isChecked={onXbox}
+              setChecked={setOnXbox}
+            />
+            <InputCheckbox
+              label={"PC"}
+              name={"availablePlatforms"}
+              value={false}
+              handleCheckbox={handleCheckbox}
+              isChecked={onPC}
+              setChecked={setOnPC}
+            />{" "}
+          </div>
+        </div>
 
-        <InputCheckbox
-          label={"Playstation"}
-          name={"availablePlatforms"}
-          value={false}
-          handleCheckbox={handleCheckbox}
-          isChecked={onPlaystation}
-          setChecked={setOnPlaystation}
-        />
-        <InputCheckbox
-          label={"Xbox"}
-          name={"availablePlatforms"}
-          value={false}
-          handleCheckbox={handleCheckbox}
-          isChecked={onXbox}
-          setChecked={setOnXbox}
-        />
-        <InputCheckbox
-          label={"PC"}
-          name={"availablePlatforms"}
-          value={false}
-          handleCheckbox={handleCheckbox}
-          isChecked={onPC}
-          setChecked={setOnPC}
-        />
-      </div>
-
-      <div className="statusSelector">
-        <select
-          name="statusSelect"
-          id="statusSelect"
-          onChange={(event) => {
-            setGameStatus(event.target.value);
-          }}
-        >
-          <option defaultChecked value="Wishlist">
-            Wishlist
-          </option>
-          <option value="In-progress">In-progress</option>
-          <option value="Done">Done</option>
-        </select>
-      </div>
-      <div className="formSubmitDiv">
-        <input
-          type="submit"
-          value={"Add game"}
-          onClick={(event) => {
-            handleSubmit();
-          }}
-        ></input>
+        <div className="statusSelector">
+          <label htmlFor="statusSelect">Game status:</label>{" "}
+          <select
+            name="statusSelect"
+            id="statusSelect"
+            onChange={(event) => {
+              setGameStatus(event.target.value);
+            }}
+          >
+            <option defaultChecked value="Wishlist">
+              Wishlist
+            </option>
+            <option value="In-progress">In-progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+        <div className="formSubmitDiv">
+          <button
+            type="submit"
+            onClick={(event) => {
+              handleSubmit();
+            }}
+          >
+            Add game
+          </button>
+        </div>
       </div>
     </form>
   );

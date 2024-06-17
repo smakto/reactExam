@@ -1,10 +1,11 @@
 header {
-  background-color: #7091e6;
+  background: url(https://t3.ftcdn.net/jpg/03/23/88/08/360_F_323880864_TPsH5ropjEBo1ViILJmcFHJqsBzorxUB.jpghttps://t3.ftcdn.net/jpg/02/42/75/76/360_F_242757656_LYhzT9Kzxb5XdOsNY6SYSyroxMzZBeRN.jpg);
   border: 1px solid #ede8f5;
   padding: 15px;
   font-family: "Tiny5", sans-serif;
   font-size: larger;
   display: flex;
+  position: relative;
 }
 
 header img {
@@ -20,11 +21,15 @@ div.headerRight {
   justify-content: space-around;
 }
 
-div.headerRight {
-  position: relative;
-}
-
 header button {
   font-family: "Tiny5", sans-serif;
   background-color: #ede8f5;
+}
+
+.headerLeftBottom p {
+  margin: 0;
+}
+
+.headerLeftTop p {
+  margin: 0;
 }

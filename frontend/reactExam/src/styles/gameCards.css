@@ -2,7 +2,6 @@
   margin: 0 auto;
   width: 80%;
   margin-top: 25px;
-  color: #3d52a0;
   columns: 4;
   column-width: 100%;
 }
@@ -14,17 +13,14 @@
   flex-direction: column;
   margin-bottom: 15px;
   page-break-inside: avoid;
+  border: 1px solid #ede8f5;
 }
 
 .gameCard:hover {
   transform: scale(1.07);
   transition: 0.3s;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .cardImg {
@@ -40,7 +36,6 @@
 
 .gameCard h3 {
   text-align: center;
-  color: black;
   margin: 5px 10px;
 }
 
@@ -64,7 +59,8 @@
 
 .platformIcons {
   display: flex;
-  justify-content: space-evenly;
+  width: 60%;
+  justify-content: flex-start;
   height: 25px;
   align-items: center;
   margin-top: 10px;
@@ -77,12 +73,21 @@
 
 .fa-playstation {
   color: blue;
+  margin: 10px;
 }
 
 .fa-xbox {
   color: green;
+  margin-right: 15px;
 }
 
 .fa-computer {
   color: black;
+  margin-right: 5px;
+}
+
+.cardBottom {
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
 }

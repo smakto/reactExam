@@ -85,6 +85,7 @@ export function SingleGamePage() {
                 addNoteModal ? "newStatusModalOn" : "newStatusModalOff"
               }
             >
+              <p>Select new game status</p>
               <select
                 name="newStatusSelect"
                 id="newStatusSelect"
@@ -98,22 +99,24 @@ export function SingleGamePage() {
                 <option value="In-progress">In-progress</option>
                 <option value="Done">Done</option>
               </select>
-              <button
-                onClick={() => {
-                  handleStatusChange();
-                  setModalDisplay(false);
-                  window.location.reload();
-                }}
-              >
-                Confirm
-              </button>
-              <button
-                onClick={() => {
-                  setModalDisplay(!addNoteModal);
-                }}
-              >
-                Cancel
-              </button>
+              <div className="newStatusButtons">
+                <button
+                  onClick={() => {
+                    handleStatusChange();
+                    setModalDisplay(false);
+                    window.location.reload();
+                  }}
+                >
+                  Confirm
+                </button>
+                <button
+                  onClick={() => {
+                    setModalDisplay(!addNoteModal);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           }
         />
@@ -174,10 +177,11 @@ export function SingleGamePage() {
           <div className="singleGameNotes">
             <Modal
               modalClassName={
-                editNoteModal ? "gameNoteModalOn" : "gameNoteModalOff"
+                editNoteModal ? "noteEditModalOn" : "noteEditModalOff"
               }
               modalContent={
-                <>
+                <div className="noteEditConfirmationOn">
+                  <p>Enter new note text</p>
                   <textarea
                     defaultValue={noteToEdit.noteText}
                     onChange={(event) => {
@@ -189,17 +193,19 @@ export function SingleGamePage() {
                       }
                     }}
                   ></textarea>
-                  <button
-                    onClick={() => {
-                      handleNoteEdit();
-                    }}
-                  >
-                    Confirm
-                  </button>
-                  <button onClick={() => setEditModalDisplay(false)}>
-                    Cancel
-                  </button>
-                </>
+                  <div className="noteEditButtons">
+                    <button
+                      onClick={() => {
+                        handleNoteEdit();
+                      }}
+                    >
+                      Confirm
+                    </button>
+                    <button onClick={() => setEditModalDisplay(false)}>
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               }
             />
             <Modal
@@ -207,19 +213,21 @@ export function SingleGamePage() {
                 deleteNoteModal ? "deleteNoteModalOn" : "deleteNoteModalOff"
               }
               modalContent={
-                <>
-                  <p>Are you sure?</p>
-                  <button
-                    onClick={() => {
-                      handleNoteEdit();
-                    }}
-                  >
-                    Confirm
-                  </button>
-                  <button onClick={() => setDeleteNoteModal(false)}>
-                    Cancel
-                  </button>
-                </>
+                <div className="deleteNoteConfirmOn">
+                  <p>Are you sure you want to delete this note?</p>
+                  <div className="noteDeleteConfirmationButtons">
+                    <button
+                      onClick={() => {
+                        handleNoteEdit();
+                      }}
+                    >
+                      Confirm
+                    </button>
+                    <button onClick={() => setDeleteNoteModal(false)}>
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               }
             />
             {notesKeys.map((index) => {

@@ -1,6 +1,58 @@
 .addGameForm {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 25px;
+  border: 1px solid #ede8f5;
+  background-color: #7091e6;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -13px 15px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -26px 20px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -59px 30px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 10px 8px, rgba(0, 0, 0, 0.09) 0px 22px 10px;
+}
+
+.addGameContainer {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
+  padding: 25px;
+}
+
+.addGameContainer > * {
+  margin: 3px;
+}
+
+.addGameContainer input {
+  background-color: #a0b4ef;
+  border: 1px solid #ede8f5;
+}
+
+.formSubmitDiv {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.formSubmitDiv > button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  padding: 2px 15px;
+}
+
+.statusSelector select {
+  background-color: #a0b4ef;
+  border: 1px solid #ede8f5;
+  width: 40%;
+}
+
+.statusSelector option {
+  text-align: center;
+}
+
+.platformSelector,
+.multiplayerSelector,
+.statusSelector {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
 }

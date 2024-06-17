@@ -8,8 +8,37 @@ export function Header() {
 
   return (
     <header>
+      <Modal
+        modalClassName={modalDisplay ? "modalOn" : "modalOff"}
+        modalContent={
+          <div
+            className={modalDisplay ? "menuModalOn" : "menuModalOff"}
+            onMouseLeave={() => {
+              setModalDisplay(false);
+            }}
+          >
+            <Link to={"/games"}>
+              <p>All games</p>
+            </Link>
+            <Link to={"/psgames"}>
+              <p>Playstation games</p>
+            </Link>
+            <Link to={"/xboxgames"}>
+              <p>Xbox games</p>
+            </Link>{" "}
+            <Link to={"/pcgames"}>
+              <p>PC games</p>
+            </Link>
+            <Link to={"/multiplayer"}>
+              <p>Multiplayer games</p>
+            </Link>
+          </div>
+        }
+      />
       <div className="headerLeft">
         <div className="headerLeftTop">
+          <p>LET THE GAMES BEGIN</p>
+
           <Link to={"/"}>
             <img
               src="https://i.redd.it/qe9k0tyayre21.png"
@@ -17,7 +46,9 @@ export function Header() {
             ></img>
           </Link>
         </div>
-        <div className="headerLeftBottom">LET THE GAMES BEGIN</div>
+        <div className="headerLeftBottom">
+          <p>PERSONAL GAME LIBRARY</p>
+        </div>
       </div>
       <div className="headerRight">
         <div className="headerRightTop">
@@ -34,29 +65,11 @@ export function Header() {
             <button>Add game</button>
           </Link>
         </div>
-        <Modal
-          modalClassName={modalDisplay ? "modalOn" : "modalOff"}
-          modalContent={
-            <div className="menuModal">
-              <Link to={"/games"}>
-                <p>All games</p>
-              </Link>
-              <Link to={"/psgames"}>
-                <p>Playstation games</p>
-              </Link>
-              <Link to={"/xboxgames"}>
-                <p>Xbox games</p>
-              </Link>{" "}
-              <Link to={"/pcgames"}>
-                <p>PC games</p>
-              </Link>
-              <Link to={"/multiplayer"}>
-                <p>Multiplayer games</p>
-              </Link>
-            </div>
-          }
-        />
       </div>
     </header>
   );
 }
+
+// function MenuModal () {
+//   return ()
+// }
