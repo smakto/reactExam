@@ -32,7 +32,7 @@ export function PageHead({ handleSearchInput }) {
   return (
     <div className="pageHeadContainer">
       <div className="pageHeadLeft">
-        <h2 className="gameCategoryHead">
+        <h1 className="gameCategoryHead">
           {urlPath === ("/games" || "/games/")
             ? "All games"
             : urlPath === ("/psgames" || "/psgames/")
@@ -43,7 +43,7 @@ export function PageHead({ handleSearchInput }) {
             ? "PC games"
             : urlPath === ("/multiplayer" || "/multiplayer/") &&
               "Multiplayer games"}
-        </h2>
+        </h1>
         <ToggleButtons
           buttonText={"Currently playing"}
           handleClick={handleClick}

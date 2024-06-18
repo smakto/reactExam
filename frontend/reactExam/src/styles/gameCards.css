@@ -91,3 +91,21 @@
   margin: 5px;
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 1024px) {
+  .gameCardsContainer {
+    columns: 3;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .gameCardsContainer {
+    columns: 2;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .gameCardsContainer {
+    columns: 1;
+  }
+}

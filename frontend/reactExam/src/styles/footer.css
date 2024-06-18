@@ -30,3 +30,33 @@ footer img {
 footer img.ignLogo {
   height: 20px;
 }
+
+@media only screen and (max-width: 765px) {
+  footer img {
+    height: 18px;
+  }
+
+  footer img.ignLogo {
+    height: 15px;
+  }
+}
+
+@media only screen and (max-width: 566px) {
+  footer img {
+    height: 16px;
+  }
+
+  footer img.ignLogo {
+    height: 13px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer img {
+    height: 13px;
+  }
+
+  footer img.ignLogo {
+    height: 10px;
+  }
+}

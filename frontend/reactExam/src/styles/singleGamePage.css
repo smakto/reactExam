@@ -25,7 +25,7 @@
   border-top: 1px solid #ede8f5;
 }
 
-.singleGameNotes div,
+.singleGameNotes > div,
 .singleGameLeft {
   padding: 15px;
 }
@@ -45,6 +45,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.gameNote p {
+  font-weight: bold;
+  font-size: smaller;
+  width: 70%;
 }
 
 .singleGameRight {
@@ -83,11 +89,70 @@
 
 .notesButtons {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  width: 10%;
 }
 
 .notesButtons button {
   font-family: "Tiny5", sans-serif;
   background-color: #ede8f5;
-  margin-left: 15px;
+  margin: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .singleGameDiv {
+    flex-direction: column-reverse;
+  }
+
+  .singleGameLeft {
+    width: 90%;
+  }
+
+  .singleGameRight {
+    width: 100%;
+    align-items: center;
+  }
+
+  .gameNotesArea {
+    max-width: 90%;
+  }
+
+  .notesButtons {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .singleGameLeft {
+    margin: 0;
+    align-self: center;
+  }
+
+  .singleGameDiv h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .noteInputContainer textarea {
+    font-size: 12px;
+    max-width: 95%;
+  }
+
+  .notesButtons button {
+    font-size: 12px;
+  }
+  .notesButtons {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .singleGameInfo > * {
+    margin: 10px 5px;
+    font-size: smaller;
+  }
+  .notesButtons {
+    width: 25%;
+  }
 }

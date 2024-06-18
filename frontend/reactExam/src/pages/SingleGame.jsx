@@ -128,7 +128,7 @@ export function SingleGamePage() {
               <h4>Genre: {game.genre}</h4>
               <h4>Multiplayer: {game.multiplayer}</h4>
               <div className="editStatusContainer">
-                <h4>Game status: {game.status}</h4>
+                <h4>Status: {game.status}</h4>
                 <button
                   className="editStatusButton"
                   onClick={() => {
@@ -152,7 +152,7 @@ export function SingleGamePage() {
             <div className="noteInputContainer">
               <label htmlFor="gameNotesArea">
                 <h4>New note:</h4>
-              </label>{" "}
+              </label>
               <textarea
                 name="gameNotesArea"
                 className="gameNotesArea"
@@ -245,7 +245,7 @@ export function SingleGamePage() {
                           setEditModalDisplay(!editNoteModal);
                         }}
                       >
-                        Edit note
+                        Edit
                       </button>
                       <button
                         onClick={() => {
@@ -256,7 +256,7 @@ export function SingleGamePage() {
                           setDeleteNoteModal(!deleteNoteModal);
                         }}
                       >
-                        Delete note
+                        Delete
                       </button>
                     </div>
                   </div>

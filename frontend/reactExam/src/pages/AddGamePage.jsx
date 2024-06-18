@@ -87,7 +87,7 @@ export function AddGamePage() {
         />
         <div className="multiplayerSelector">
           <label htmlFor={"isMultiplayer"}>Multiplayer available?</label>
-          <div className="platformAndMultiplayerDiv">
+          <div>
             <Input
               type={"radio"}
               label={"Yes"}

@@ -56,3 +56,68 @@
   justify-content: space-between;
   margin-top: 7px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .addGameForm {
+    width: 70%;
+  }
+  .addGameContainer {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  .addGameContainer {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .addGameContainer {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .addGameForm {
+    width: 80%;
+  }
+  .addGameContainer {
+    padding: 20px 5px;
+  }
+
+  .platformSelector,
+  .multiplayerSelector {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .platformSelector div label,
+  .multiplayerSelector div label {
+    font-size: 12px;
+  }
+
+  .multiplayerSelector div,
+  .platformSelector div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .statusSelector {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .statusSelector label {
+    margin-bottom: 2px;
+  }
+
+  .statusSelector select {
+    scale: 0.95;
+  }
+}

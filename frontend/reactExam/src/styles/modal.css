@@ -16,15 +16,17 @@
   z-index: 999;
 }
 
+.statusEditModalOn,
+.noteEditModalOn,
+.noteDeleteModalOn {
+  padding: 15px;
+}
+
 .gameCardModalOff,
 .statusEditModalOff,
 .noteEditModalOff,
 .deleteNoteModalOff {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: 0;
+  display: none;
 }
 
 .menuModalOn p {
@@ -56,15 +58,6 @@
   min-height: 150px;
 }
 
-.deleteCardConfirmationOff {
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #ede8f5;
-  box-shadow: rgba(227, 34, 34, 0.4) 0px 0px 0px 2px,
-    rgba(214, 19, 54, 0.65) 0px 4px 6px -1px, rgb(255, 36, 36) 0px 1px 0px inset;
-}
-
 .deleteCardConfirmationOn button,
 .newStatusButtons button,
 .noteEditConfirmationOn button,
@@ -76,14 +69,15 @@
 }
 
 .deleteCardConfirmationOn button:first-of-type:hover,
-.newStatusButtons button:first-of-type:hover,
-.noteEditConfirmationOn button:first-of-type:hover {
+.newStatusButtons button:last-of-type:hover,
+.noteEditConfirmationOn button:last-of-type:hover,
+.noteDeleteConfirmationButtons button:first-of-type:hover {
   background-color: red;
 }
 
 .deleteCardConfirmationOn button:last-of-type:hover,
-.newStatusButtons button:last-of-type:hover,
-.noteEditConfirmationOn button:last-of-type:hover,
+.newStatusButtons button:first-of-type:hover,
+.noteEditConfirmationOn button:first-of-type:hover,
 .noteDeleteConfirmationButtons button:last-of-type:hover {
   background-color: green;
 }
@@ -151,4 +145,65 @@
   width: 0;
   height: 0;
   opacity: 0;
+}
+
+.deleteNoteConfirmOn {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .deleteCardConfirmationOn,
+  .newStatusModalOn,
+  .noteEditConfirmationOn,
+  .deleteNoteConfirmOn {
+    min-width: 300px;
+    min-height: 150px;
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .deleteCardConfirmationOn,
+  .newStatusModalOn,
+  .noteEditConfirmationOn,
+  .deleteNoteConfirmOn {
+    min-width: 200px;
+    min-height: 150px;
+    max-width: 300px;
+  }
+
+  #newStatusSelect {
+    width: 100%;
+  }
+
+  .newStatusButtons,
+  .noteEditButtons,
+  .noteDeleteConfirmationButtons,
+  .deleteConfirmationButtons {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .deleteCardConfirmationOn,
+  .newStatusModalOn,
+  .noteEditConfirmationOn,
+  .deleteNoteConfirmOn {
+    min-width: 100px;
+    min-height: 150px;
+    max-width: 200px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .deleteCardConfirmationOn,
+  .newStatusModalOn,
+  .noteEditConfirmationOn,
+  .deleteNoteConfirmOn {
+    min-width: 100px;
+    min-height: 150px;
+    max-width: 150px;
+  }
 }
