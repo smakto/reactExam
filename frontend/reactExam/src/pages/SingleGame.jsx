@@ -9,7 +9,7 @@ import { Input } from "../components/Inputs";
 
 export function SingleGamePage() {
   const params = useParams();
-  const { dataSet, loaded, patchData } = useData(`games/${params.id}`);
+  const { dataSet, loaded, patchData } = useData(`/games/${params.id}`);
   const game = dataSet[0];
   const [gameNote, setGameNote] = useState("");
   const [noteCount, setNoteCount] = useState(1);

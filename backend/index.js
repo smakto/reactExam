@@ -80,6 +80,19 @@ app.get("/multiplayer", async (req, res) => {
   }
 });
 
+app.get("/genre/:genre", async (req, res) => {
+  try {
+    let gameGenre = req.params.genre;
+    let collection = await db.collection(process.env.DBCOLLECTION);
+    let results = await collection
+      .find({ genre: { $regex: new RegExp(gameGenre, "i") } })
+      .toArray();
+    res.send(results).status(200);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
 app.get("/games/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
@@ -120,7 +133,6 @@ app.patch("/games/addnote/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
     let collection = await db.collection(process.env.DBCOLLECTION);
-    console.log(req.body);
     let result = await collection.findOneAndUpdate(
       { _id: objectedId },
       { $set: { note: req.body } },
@@ -136,7 +148,6 @@ app.patch("/games/editnote/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
     let collection = await db.collection(process.env.DBCOLLECTION);
-    console.log(req.body);
     let result = await collection.findOneAndUpdate(
       { _id: objectedId },
       { $set: { note: req.body } },
@@ -152,7 +163,6 @@ app.patch("/games/editstatus/:id", async (req, res) => {
   try {
     let objectedId = new ObjectId(req.params.id);
     let collection = await db.collection(process.env.DBCOLLECTION);
-    console.log(req.body);
     let result = await collection.findOneAndUpdate(
       { _id: objectedId },
       { $set: req.body },

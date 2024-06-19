@@ -117,7 +117,6 @@
 .modalOn {
   display: block;
   position: absolute;
-  right: 0px;
   right: 13px;
   top: -2px;
   width: 15%;
@@ -126,7 +125,7 @@
 }
 
 .menuModalOn {
-  height: 200px;
+  height: auto;
   width: 100%;
   padding: 7px;
   text-align: center;
@@ -153,6 +152,29 @@
   flex-direction: column;
 }
 
+@media only screen and (max-width: 915px) {
+  .modalOn {
+    width: 18%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .modalOn {
+    width: 100%;
+    top: 115px;
+  }
+
+  .menuModalOn {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menuModalOn a {
+    margin: 0 15px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .deleteCardConfirmationOn,
   .newStatusModalOn,
@@ -161,6 +183,20 @@
     min-width: 300px;
     min-height: 150px;
     max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .modalOn {
+    top: 100px;
+  }
+
+  .menuModalOn {
+    flex-direction: column;
+  }
+
+  .menuModalOn p {
+    font-size: smaller;
   }
 }
 
@@ -186,6 +222,12 @@
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .modalOn {
+    top: 90px;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   .deleteCardConfirmationOn,
   .newStatusModalOn,
@@ -205,5 +247,17 @@
     min-width: 100px;
     min-height: 150px;
     max-width: 150px;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .modalOn {
+    top: 100px;
+  }
+}
+
+@media only screen and (max-width: 299px) {
+  .modalOn {
+    top: 115px;
   }
 }

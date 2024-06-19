@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Modal } from "./Modal";
 import "../styles/header.css";
 import { useState } from "react";
+import { useGeneralContext } from "../contexts/useContext";
 
 export function Header() {
   const [modalDisplay, setModalDisplay] = useState(false);
@@ -17,21 +18,21 @@ export function Header() {
               setModalDisplay(false);
             }}
           >
-            <Link to={"/games"}>
-              <p>All games</p>
-            </Link>
-            <Link to={"/psgames"}>
-              <p>Playstation games</p>
-            </Link>
-            <Link to={"/xboxgames"}>
-              <p>Xbox games</p>
-            </Link>{" "}
-            <Link to={"/pcgames"}>
-              <p>PC games</p>
-            </Link>
-            <Link to={"/multiplayer"}>
-              <p>Multiplayer games</p>
-            </Link>
+            <MenuLink urlLink={"/games"} category={"All games"} />
+            <MenuLink urlLink={"/psgames"} category={"Playstation games"} />
+            <MenuLink urlLink={"/xboxgames"} category={"Xbox games"} />
+            <MenuLink urlLink={"/pcgames"} category={"PC games"} />
+            <MenuLink urlLink={"/multiplayer"} category={"Multiplayer games"} />
+            <MenuLink urlLink={"/genre/action"} category={"Action games"} />
+            <MenuLink
+              urlLink={"/genre/adventure"}
+              category={"Adventure games"}
+            />
+            <MenuLink urlLink={"/genre/racing"} category={"Racing games"} />
+            <MenuLink urlLink={"/genre/rogue"} category={"Roguelike games"} />
+            <MenuLink urlLink={"/genre/rpg"} category={"RPG games"} />
+            <MenuLink urlLink={"/genre/strategy"} category={"Strategy games"} />
+            <MenuLink urlLink={"/genre/turn"} category={"Turn-based games"} />
           </div>
         }
       />
@@ -70,6 +71,20 @@ export function Header() {
   );
 }
 
-// function MenuModal () {
-//   return ()
-// }
+function MenuLink({ urlLink, category }) {
+  const myContext = useGeneralContext();
+
+  return (
+    <Link
+      to={urlLink}
+      onClick={() => {
+        myContext.dispatch({
+          type: "NEWPAGEHEAD",
+          newPageHead: category,
+        });
+      }}
+    >
+      <p>{category}</p>
+    </Link>
+  );
+}

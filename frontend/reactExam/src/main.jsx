@@ -24,24 +24,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/games",
-        element: <MainPage route={"games"} />,
+        element: <MainPage />,
       },
       {
         path: "/psgames",
-        element: <MainPage route={"psgames"} />,
+        element: <MainPage />,
       },
       {
         path: "/xboxgames",
-        element: <MainPage route={"xboxgames"} />,
+        element: <MainPage />,
       },
       {
         path: "/pcgames",
-        element: <MainPage route={"pcgames"} />,
+        element: <MainPage />,
       },
       {
         path: "/multiplayer",
-        element: <MainPage route={"multiplayer"} />,
+        element: <MainPage />,
       },
+      {
+        path: "/genre/:genre",
+        element: <MainPage />,
+      },
+
       {
         path: "/addGame",
         element: <AddGamePage />,

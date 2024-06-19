@@ -32,18 +32,7 @@ export function PageHead({ handleSearchInput }) {
   return (
     <div className="pageHeadContainer">
       <div className="pageHeadLeft">
-        <h1 className="gameCategoryHead">
-          {urlPath === ("/games" || "/games/")
-            ? "All games"
-            : urlPath === ("/psgames" || "/psgames/")
-            ? "Playstation games"
-            : urlPath === ("/xboxgames" || "/xboxgames/")
-            ? "Xbox games"
-            : urlPath === ("/pcgames" || "/pcgames/")
-            ? "PC games"
-            : urlPath === ("/multiplayer" || "/multiplayer/") &&
-              "Multiplayer games"}
-        </h1>
+        <h1 className="gameCategoryHead">{myContext.pageHead}</h1>
         <ToggleButtons
           buttonText={"Currently playing"}
           handleClick={handleClick}

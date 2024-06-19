@@ -5,13 +5,16 @@ import "../styles/gameCards.css";
 import { useEffect, useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
 import { useSearch } from "../hooks/useSearch";
+import { useParams } from "react-router-dom";
 
 function searchFunct(element, inputValue) {
   return element.name.toLowerCase().includes(inputValue.toLowerCase());
 }
 
-export function MainPage({ route }) {
-  const { dataSet, deleteData, loaded } = useData(route);
+export function MainPage() {
+  const urlPath = window.location.pathname;
+
+  const { dataSet, deleteData, loaded } = useData(urlPath);
   const [dataToRender, setDataToRender] = useState([]);
   const myContext = useGeneralContext();
 

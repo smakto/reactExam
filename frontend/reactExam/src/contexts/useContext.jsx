@@ -6,6 +6,7 @@ const defaultValues = {
   playing: 0,
   allgames: 1,
   gameSearch: "",
+  pageHead: "All games",
 };
 
 const GeneralContext = createContext();
@@ -56,6 +57,11 @@ function reducerActions(state, action) {
       return {
         ...state,
         allgames: 1,
+      };
+    case "NEWPAGEHEAD":
+      return {
+        ...state,
+        pageHead: action.newPageHead,
       };
     default:
       return state;

@@ -25,6 +25,7 @@ export function GameCard({ data, dataDel }) {
             deleteEvent={() => {
               dataDel(idToDelete);
               setModalDisplay(false);
+              window.location.reload();
             }}
             cancelEvent={() => {
               setModalDisplay(false);
