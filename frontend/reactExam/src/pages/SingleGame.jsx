@@ -11,15 +11,16 @@ export function SingleGamePage() {
   const params = useParams();
   const { dataSet, loaded, patchData } = useData(`/games/${params.id}`);
   const game = dataSet[0];
+
   const [gameNote, setGameNote] = useState("");
   const [noteCount, setNoteCount] = useState(1);
   const [notesKeys, setNoteKeys] = useState("");
 
-  const [addNoteModal, setModalDisplay] = useState(false);
+  const [newStatusModal, setModalDisplay] = useState(false);
   const [editNoteModal, setEditModalDisplay] = useState(false);
   const [deleteNoteModal, setDeleteNoteModal] = useState(false);
 
-  const [newStatus, setNewStatus] = useState("");
+  const [newStatus, setNewStatus] = useState("Wishlist");
   const [noteToEdit, setNoteToEdit] = useState({ noteKey: 0, noteText: "" });
 
   useEffect(() => {
@@ -27,9 +28,6 @@ export function SingleGamePage() {
       const keysArray = Object.keys(game);
       if (keysArray.includes("note")) {
         const notesKeysArray = Object.keys(game.note);
-
-        notesKeysArray;
-
         setNoteKeys(notesKeysArray);
         setNoteCount(notesKeysArray.length + 1);
       } else setNoteCount(1);
@@ -38,10 +36,10 @@ export function SingleGamePage() {
 
   useEffect(() => {
     document.body.style.overflow =
-      addNoteModal || editNoteModal ? "hidden" : "unset";
-  }, [addNoteModal, editNoteModal]);
+      newStatusModal || editNoteModal ? "hidden" : "unset";
+  }, [newStatusModal, editNoteModal]);
 
-  function handleGameNote(input) {
+  function handleNewGameNoteInput(input) {
     setGameNote(input);
   }
 
@@ -70,109 +68,26 @@ export function SingleGamePage() {
       status: newStatus,
     };
     patchData("editstatus", params.id, updatedStatus);
+    window.location.reload();
   }
 
   return (
     loaded && (
       <>
-        <Modal
-          modalClassName={
-            addNoteModal ? "statusEditModalOn" : "statusEditModalOff"
-          }
-          modalContent={
-            <div
-              className={
-                addNoteModal ? "newStatusModalOn" : "newStatusModalOff"
-              }
-            >
-              <p>Select new game status</p>
-              <select
-                name="newStatusSelect"
-                id="newStatusSelect"
-                onChange={(event) => {
-                  setNewStatus(event.target.value);
-                }}
-              >
-                <option defaultChecked value="Wishlist">
-                  Wishlist
-                </option>
-                <option value="In-progress">In-progress</option>
-                <option value="Done">Done</option>
-              </select>
-              <div className="newStatusButtons">
-                <button
-                  onClick={() => {
-                    handleStatusChange();
-                    setModalDisplay(false);
-                    window.location.reload();
-                  }}
-                >
-                  Confirm
-                </button>
-                <button
-                  onClick={() => {
-                    setModalDisplay(!addNoteModal);
-                  }}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          }
+        <StatusEditModal
+          newStatusModal={newStatusModal}
+          setNewStatus={setNewStatus}
+          handleStatusChange={handleStatusChange}
+          setModalDisplay={setModalDisplay}
         />
-        <div className="singleGameDiv">
-          <div className="singleGameLeft">
-            <h1>{game.name}</h1>
-            <div className="singleGameInfo">
-              <h4>Released: {game.releaseDate}</h4>
-              <h4>Genre: {game.genre}</h4>
-              <h4>Multiplayer: {game.multiplayer}</h4>
-              <div className="editStatusContainer">
-                <h4>Status: {game.status}</h4>
-                <button
-                  className="editStatusButton"
-                  onClick={() => {
-                    setModalDisplay(!addNoteModal);
-                  }}
-                >
-                  Edit status
-                </button>
-              </div>
 
-              <h4>
-                Available on:
-                {
-                  <Platforms
-                    source={game}
-                    containerClasses={"platformIcons singleGamePlatforms"}
-                  />
-                }
-              </h4>
-            </div>
-            <div className="noteInputContainer">
-              <label htmlFor="gameNotesArea">
-                <h4>New note:</h4>
-              </label>
-              <textarea
-                name="gameNotesArea"
-                className="gameNotesArea"
-                onChange={(event) => {
-                  handleGameNote(event.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  handleNoteAdd();
-                }}
-              >
-                Add note
-              </button>
-            </div>
-          </div>
-          <div className="singleGameRight">
-            <img src={game.img} />
-          </div>
-        </div>
+        <GameInfo
+          source={game}
+          setModalDisplay={setModalDisplay}
+          handleNewGameNoteInput={handleNewGameNoteInput}
+          handleNoteAdd={handleNoteAdd}
+        />
+
         {typeof notesKeys !== "string" && (
           <div className="singleGameNotes">
             <Modal
@@ -233,33 +148,14 @@ export function SingleGamePage() {
             {notesKeys.map((index) => {
               if (game.note[index].length > 0) {
                 return (
-                  <div key={index} className="gameNote">
-                    <p>{game.note[index]}</p>
-                    <div className="notesButtons">
-                      <button
-                        onClick={() => {
-                          setNoteToEdit({
-                            noteKey: index,
-                            noteText: game.note[index],
-                          });
-                          setEditModalDisplay(!editNoteModal);
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => {
-                          setNoteToEdit({
-                            noteKey: index,
-                            noteText: "",
-                          });
-                          setDeleteNoteModal(!deleteNoteModal);
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
+                  <GameNotes
+                    key={index}
+                    index={index}
+                    source={game}
+                    setNoteToEdit={setNoteToEdit}
+                    setEditModalDisplay={setEditModalDisplay}
+                    setDeleteNoteModal={setDeleteNoteModal}
+                  />
                 );
               }
             })}
@@ -267,5 +163,167 @@ export function SingleGamePage() {
         )}
       </>
     )
+  );
+}
+
+function GameInfo({
+  source,
+  setModalDisplay,
+  handleNewGameNoteInput,
+  handleNoteAdd,
+}) {
+  return (
+    <div className="singleGameDiv">
+      <div className="singleGameLeft">
+        <h1>{source.name}</h1>
+        <div className="singleGameInfo">
+          <h4>Released: {source.releaseDate}</h4>
+          <h4>Genre: {source.genre}</h4>
+          <h4>Multiplayer: {source.multiplayer}</h4>
+          <div className="editStatusContainer">
+            <h4>Status: {source.status}</h4>
+            <button
+              className="editStatusButton"
+              onClick={() => {
+                setModalDisplay(true);
+              }}
+            >
+              Edit status
+            </button>
+          </div>
+
+          <h4>
+            Available on:
+            {
+              <Platforms
+                source={source}
+                containerClasses={"platformIcons singleGamePlatforms"}
+              />
+            }
+          </h4>
+        </div>
+        <GameNoteCreate
+          handleNoteAdd={handleNoteAdd}
+          handleNewGameNoteInput={handleNewGameNoteInput}
+        />
+      </div>
+      <div className="singleGameRight">
+        <img src={source.img} />
+      </div>
+    </div>
+  );
+}
+
+function GameNotes({
+  index,
+  source,
+  setNoteToEdit,
+  setEditModalDisplay,
+  setDeleteNoteModal,
+}) {
+  return (
+    <div className="gameNote">
+      <p>{source.note[index]}</p>
+      <div className="notesButtons">
+        <button
+          onClick={() => {
+            setNoteToEdit({
+              noteKey: index,
+              noteText: source.note[index],
+            });
+            setEditModalDisplay(true);
+          }}
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => {
+            setNoteToEdit({
+              noteKey: index,
+              noteText: "",
+            });
+            setDeleteNoteModal(true);
+          }}
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function GameNoteCreate({ handleNoteAdd, handleNewGameNoteInput }) {
+  return (
+    <div className="noteInputContainer">
+      <label htmlFor="gameNotesArea">
+        <h4>New note:</h4>
+      </label>
+      <textarea
+        name="gameNotesArea"
+        className="gameNotesArea"
+        onChange={(event) => {
+          handleNewGameNoteInput(event.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          handleNoteAdd();
+        }}
+      >
+        Add note
+      </button>
+    </div>
+  );
+}
+
+function StatusEditModal({
+  newStatusModal,
+  setNewStatus,
+  handleStatusChange,
+  setModalDisplay,
+}) {
+  return (
+    <Modal
+      modalClassName={
+        newStatusModal ? "statusEditModalOn" : "statusEditModalOff"
+      }
+      modalContent={
+        <div
+          className={newStatusModal ? "newStatusModalOn" : "newStatusModalOff"}
+        >
+          <p>Select new game status</p>
+          <select
+            name="newStatusSelect"
+            id="newStatusSelect"
+            onChange={(event) => {
+              setNewStatus(event.target.value);
+            }}
+          >
+            <option defaultChecked value="Wishlist">
+              Wishlist
+            </option>
+            <option value="In-progress">In-progress</option>
+            <option value="Done">Done</option>
+          </select>
+          <div className="newStatusButtons">
+            <button
+              onClick={() => {
+                handleStatusChange();
+                setModalDisplay(false);
+              }}
+            >
+              Confirm
+            </button>
+            <button
+              onClick={() => {
+                setModalDisplay(false);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      }
+    />
   );
 }

@@ -4,7 +4,7 @@ import { useData } from "../hooks/useData";
 import "../styles/addGamePage.css";
 
 export function AddGamePage() {
-  const { dataSet, addData } = useData("games");
+  const { addData } = useData("games");
 
   const [gameTitle, setGameTitle] = useState("");
   const [releaseDate, setReleaseDate] = useState(0);
@@ -20,7 +20,7 @@ export function AddGamePage() {
     setData(value);
   }
 
-  function handleCheckbox(setChecked, isChecked) {
+  function handleCheckbox(isChecked, setChecked) {
     setChecked(!isChecked);
   }
 
@@ -85,75 +85,20 @@ export function AddGamePage() {
           handleChange={handleChange}
           setData={setGameImage}
         />
-        <div className="multiplayerSelector">
-          <label htmlFor={"isMultiplayer"}>Multiplayer available?</label>
-          <div>
-            <Input
-              type={"radio"}
-              label={"Yes"}
-              name={"isMultiplayer"}
-              value={"Yes"}
-              handleChange={handleChange}
-              setData={setIsMultiplayer}
-            />
-            <Input
-              type={"radio"}
-              label={"No"}
-              name={"isMultiplayer"}
-              value={"No"}
-              defaultChecked={true}
-              handleChange={handleChange}
-              setData={setIsMultiplayer}
-            />
-          </div>
-        </div>
-
-        <div className="platformSelector">
-          <label htmlFor={"availablePlatforms"}>Platforms available:</label>
-          <div>
-            <InputCheckbox
-              label={"Playstation"}
-              name={"availablePlatforms"}
-              value={false}
-              handleCheckbox={handleCheckbox}
-              isChecked={onPlaystation}
-              setChecked={setOnPlaystation}
-            />
-            <InputCheckbox
-              label={"Xbox"}
-              name={"availablePlatforms"}
-              value={false}
-              handleCheckbox={handleCheckbox}
-              isChecked={onXbox}
-              setChecked={setOnXbox}
-            />
-            <InputCheckbox
-              label={"PC"}
-              name={"availablePlatforms"}
-              value={false}
-              handleCheckbox={handleCheckbox}
-              isChecked={onPC}
-              setChecked={setOnPC}
-            />{" "}
-          </div>
-        </div>
-
-        <div className="statusSelector">
-          <label htmlFor="statusSelect">Game status:</label>{" "}
-          <select
-            name="statusSelect"
-            id="statusSelect"
-            onChange={(event) => {
-              setGameStatus(event.target.value);
-            }}
-          >
-            <option defaultChecked value="Wishlist">
-              Wishlist
-            </option>
-            <option value="In-progress">In-progress</option>
-            <option value="Done">Done</option>
-          </select>
-        </div>
+        <MultiplayerSelectorInput
+          handleChange={handleChange}
+          setIsMultiplayer={setIsMultiplayer}
+        />
+        <PlatformSelectorInput
+          handleCheckbox={handleCheckbox}
+          onPlaystation={onPlaystation}
+          setOnPlaystation={setOnPlaystation}
+          onXbox={onXbox}
+          setOnXbox={setOnXbox}
+          onPC={onPC}
+          setOnPC={setOnPC}
+        />
+        <GameStatusSelectInput setGameStatus={setGameStatus} />
         <div className="formSubmitDiv">
           <button
             type="submit"
@@ -166,5 +111,95 @@ export function AddGamePage() {
         </div>
       </div>
     </form>
+  );
+}
+
+function MultiplayerSelectorInput({ handleChange, setIsMultiplayer }) {
+  return (
+    <div className="multiplayerSelector">
+      <label htmlFor={"isMultiplayer"}>Multiplayer available?</label>
+      <div>
+        <Input
+          type={"radio"}
+          label={"Yes"}
+          name={"isMultiplayer"}
+          value={"Yes"}
+          handleChange={handleChange}
+          setData={setIsMultiplayer}
+        />
+        <Input
+          type={"radio"}
+          label={"No"}
+          name={"isMultiplayer"}
+          value={"No"}
+          defaultChecked={true}
+          handleChange={handleChange}
+          setData={setIsMultiplayer}
+        />
+      </div>
+    </div>
+  );
+}
+
+function PlatformSelectorInput({
+  handleCheckbox,
+  onPlaystation,
+  setOnPlaystation,
+  onXbox,
+  setOnXbox,
+  onPC,
+  setOnPC,
+}) {
+  return (
+    <div className="platformSelector">
+      <label htmlFor={"availablePlatforms"}>Platforms available:</label>
+      <div>
+        <InputCheckbox
+          label={"Playstation"}
+          name={"availablePlatforms"}
+          value={false}
+          handleCheckbox={handleCheckbox}
+          isChecked={onPlaystation}
+          setChecked={setOnPlaystation}
+        />
+        <InputCheckbox
+          label={"Xbox"}
+          name={"availablePlatforms"}
+          value={false}
+          handleCheckbox={handleCheckbox}
+          isChecked={onXbox}
+          setChecked={setOnXbox}
+        />
+        <InputCheckbox
+          label={"PC"}
+          name={"availablePlatforms"}
+          value={false}
+          handleCheckbox={handleCheckbox}
+          isChecked={onPC}
+          setChecked={setOnPC}
+        />
+      </div>
+    </div>
+  );
+}
+
+function GameStatusSelectInput({ setGameStatus }) {
+  return (
+    <div className="statusSelector">
+      <label htmlFor="statusSelect">Game status:</label>{" "}
+      <select
+        name="statusSelect"
+        id="statusSelect"
+        onChange={(event) => {
+          setGameStatus(event.target.value);
+        }}
+      >
+        <option defaultChecked value="Wishlist">
+          Wishlist
+        </option>
+        <option value="In-progress">In-progress</option>
+        <option value="Done">Done</option>
+      </select>
+    </div>
   );
 }

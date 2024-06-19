@@ -5,7 +5,7 @@ import "../styles/gameCards.css";
 import { useEffect, useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
 import { useSearch } from "../hooks/useSearch";
-import { useParams } from "react-router-dom";
+import { Loading } from "../components/Loading";
 
 function searchFunct(element, inputValue) {
   return element.name.toLowerCase().includes(inputValue.toLowerCase());
@@ -48,9 +48,13 @@ export function MainPage() {
   return (
     <>
       <PageHead handleSearchInput={handleInput} />
-      <div className="gameCardsContainer">
-        <GameCard data={data} dataDel={deleteData} />
-      </div>
+      {loaded ? (
+        <div className="gameCardsContainer">
+          <GameCard data={data} dataDel={deleteData} />
+        </div>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }

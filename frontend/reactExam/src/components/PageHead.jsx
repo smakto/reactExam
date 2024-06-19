@@ -1,10 +1,7 @@
-import { useParams } from "react-router-dom";
 import "../styles/pageHead.css";
 import { useGeneralContext } from "../contexts/useContext";
-import { Input } from "./Inputs";
 
 export function PageHead({ handleSearchInput }) {
-  const urlPath = window.location.pathname;
   const myContext = useGeneralContext();
 
   function handleClick(currentValue, buttonOn, buttonOff) {
@@ -31,56 +28,70 @@ export function PageHead({ handleSearchInput }) {
 
   return (
     <div className="pageHeadContainer">
-      <div className="pageHeadLeft">
-        <h1 className="gameCategoryHead">{myContext.pageHead}</h1>
-        <ToggleButtons
-          buttonText={"Currently playing"}
-          handleClick={handleClick}
-          currentValue={myContext.playing}
-          buttonOn="PLAYINGON"
-          buttonOff="PLAYINGOFF"
-          buttonClass={myContext.playing ? "buttonOn" : "buttonOff"}
-        />
-        <ToggleButtons
-          buttonText={"Wishlist"}
-          handleClick={handleClick}
-          currentValue={myContext.wishlist}
-          buttonOn="WISHLISTON"
-          buttonOff="WISHLISTOFF"
-          buttonClass={myContext.wishlist ? "buttonOn" : "buttonOff"}
-        />
-        <ToggleButtons
-          buttonText={"Completed"}
-          handleClick={handleClick}
-          currentValue={myContext.completed}
-          buttonOn="COMPLETEDON"
-          buttonOff="COMPLETEDOFF"
-          buttonClass={myContext.completed ? "buttonOn" : "buttonOff"}
-        />
-        <ToggleButtons
-          buttonText={"All games"}
-          handleClick={handleClick}
-          currentValue={myContext.allgames}
-          buttonOn="ALLGAMESON"
-          buttonOff="ALLGAMESOFF"
-          buttonClass={`allGamesButton ${
-            myContext.allgames ? "buttonOn" : "buttonOff"
-          }`}
-        />
-      </div>
-      <div className="pageHeadRight">
-        <label htmlFor="searchInput">Search game name:</label>
-        <input
-          type="text"
-          name="searchInput"
-          onChange={handleSearchInput}
-        ></input>
-      </div>
+      <PageHeadLeft handleClick={handleClick} />
+      <PageHeadRight handleSearchInput={handleSearchInput} />
     </div>
   );
 }
 
-function ToggleButtons({
+function PageHeadLeft({ handleClick }) {
+  const myContext = useGeneralContext();
+
+  return (
+    <div className="pageHeadLeft">
+      <h1 className="gameCategoryHead">{myContext.pageHead}</h1>
+      <ToggleButton
+        buttonText={"Currently playing"}
+        handleClick={handleClick}
+        currentValue={myContext.playing}
+        buttonOn="PLAYINGON"
+        buttonOff="PLAYINGOFF"
+        buttonClass={myContext.playing ? "buttonOn" : "buttonOff"}
+      />
+      <ToggleButton
+        buttonText={"Wishlist"}
+        handleClick={handleClick}
+        currentValue={myContext.wishlist}
+        buttonOn="WISHLISTON"
+        buttonOff="WISHLISTOFF"
+        buttonClass={myContext.wishlist ? "buttonOn" : "buttonOff"}
+      />
+      <ToggleButton
+        buttonText={"Completed"}
+        handleClick={handleClick}
+        currentValue={myContext.completed}
+        buttonOn="COMPLETEDON"
+        buttonOff="COMPLETEDOFF"
+        buttonClass={myContext.completed ? "buttonOn" : "buttonOff"}
+      />
+      <ToggleButton
+        buttonText={"All games"}
+        handleClick={handleClick}
+        currentValue={myContext.allgames}
+        buttonOn="ALLGAMESON"
+        buttonOff="ALLGAMESOFF"
+        buttonClass={`allGamesButton ${
+          myContext.allgames ? "buttonOn" : "buttonOff"
+        }`}
+      />
+    </div>
+  );
+}
+
+function PageHeadRight({ handleSearchInput }) {
+  return (
+    <div className="pageHeadRight">
+      <label htmlFor="searchInput">Search game name:</label>
+      <input
+        type="text"
+        name="searchInput"
+        onChange={handleSearchInput}
+      ></input>
+    </div>
+  );
+}
+
+function ToggleButton({
   buttonText,
   handleClick,
   buttonClass,

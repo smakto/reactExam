@@ -68,12 +68,6 @@ function reducerActions(state, action) {
   }
 }
 
-// case "MAINREF":
-//     return {
-//       ...state,
-//       mainRef: action.newMainRef,
-//     };
-
 export function GeneralContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducerActions, defaultValues);
 

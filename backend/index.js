@@ -32,9 +32,9 @@ app.get("/games", async (req, res) => {
   try {
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find().toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -44,9 +44,9 @@ app.get("/psgames", async (req, res) => {
     let results = await collection
       .find({ "platform.Playstation": 1 })
       .toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -54,9 +54,9 @@ app.get("/xboxgames", async (req, res) => {
   try {
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find({ "platform.Xbox": 1 }).toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -64,9 +64,9 @@ app.get("/pcgames", async (req, res) => {
   try {
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find({ "platform.PC": 1 }).toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -74,9 +74,9 @@ app.get("/multiplayer", async (req, res) => {
   try {
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find({ multiplayer: "Yes" }).toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -87,9 +87,9 @@ app.get("/genre/:genre", async (req, res) => {
     let results = await collection
       .find({ genre: { $regex: new RegExp(gameGenre, "i") } })
       .toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -98,9 +98,9 @@ app.get("/games/:id", async (req, res) => {
     let objectedId = new ObjectId(req.params.id);
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.find({ _id: objectedId }).toArray();
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -110,9 +110,9 @@ app.post("/games", async (req, res) => {
     console.log(req.body);
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.insertOne(newGame);
-    res.json({ success: true });
+    res.status(201).json({ success: true });
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -123,9 +123,9 @@ app.delete("/games/delete/:id", async (req, res) => {
     let results = await collection.deleteOne({
       _id: objectedId,
     });
-    res.send(results).status(200);
+    res.status(200).send(results);
   } catch (e) {
-    res.json(e);
+    res.status(500).json({ error: e.message });
   }
 });
 
