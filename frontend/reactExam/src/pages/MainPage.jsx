@@ -5,7 +5,7 @@ import "../styles/gameCards.css";
 import { useEffect, useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
 import { useSearch } from "../hooks/useSearch";
-import { Loading } from "../components/Loading";
+import { PlaceHolderDiv } from "../components/PlaceHolder";
 
 function searchFunct(element, inputValue) {
   return element.name.toLowerCase().includes(inputValue.toLowerCase());
@@ -48,12 +48,20 @@ export function MainPage() {
   return (
     <>
       <PageHead handleSearchInput={handleInput} />
-      {loaded ? (
+      {loaded && dataToRender.length > 0 ? (
         <div className="gameCardsContainer">
           <GameCard data={data} dataDel={deleteData} />
         </div>
+      ) : !loaded ? (
+        <PlaceHolderDiv
+          className={"placeHolderDiv"}
+          alertText={"Loading. Please wait."}
+        />
       ) : (
-        <Loading />
+        <PlaceHolderDiv
+          className={"placeHolderDiv"}
+          alertText={"No games in selected category."}
+        />
       )}
     </>
   );

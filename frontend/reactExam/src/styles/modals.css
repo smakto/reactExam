@@ -1,7 +1,5 @@
 .gameCardModalOn,
-.statusEditModalOn,
-.noteEditModalOn,
-.deleteNoteModalOn {
+.modalBckgOn {
   display: flex;
   position: fixed;
   justify-content: center;
@@ -16,16 +14,11 @@
   z-index: 999;
 }
 
-.statusEditModalOn,
-.noteEditModalOn,
-.noteDeleteModalOn {
+.modalBckgOn {
   padding: 15px;
 }
 
-.gameCardModalOff,
-.statusEditModalOff,
-.noteEditModalOff,
-.deleteNoteModalOff {
+.modalBckgOff {
   display: none;
 }
 
@@ -37,6 +30,11 @@
 
 .menuModalOn a {
   text-decoration: none;
+}
+
+.noteEditConfirmationOn textarea {
+  width: 100%;
+  height: auto;
 }
 
 .deleteCardConfirmationOn,
@@ -109,10 +107,6 @@
 .newStatusModalOn option {
   text-align: center;
 }
-
-/* MENU MODAL */
-/* MENU MODAL */
-/* MENU MODAL */
 
 .modalOn {
   display: block;

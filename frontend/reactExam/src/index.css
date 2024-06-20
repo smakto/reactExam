@@ -9,11 +9,5 @@
 
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
 }
-
-/* 3D52A0 = darkest
-7091E6 = header
-8697C4 = gray/blue (more blue) (background)
-ADBBDA = gray/blue (more gray)
-EDE8F5 = white/gray */

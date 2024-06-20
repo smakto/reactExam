@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { Modal } from "./Modal";
-import "../styles/header.css";
+import { Modal } from "./Modals";
 import { useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
+import { useResetButtons } from "../hooks/useResetButtons";
+import "../styles/header.css";
 
 export function Header() {
   const [modalDisplay, setModalDisplay] = useState(false);
@@ -23,6 +24,8 @@ export function Header() {
 }
 
 function HeaderLeft() {
+  const resetButtons = useResetButtons();
+
   return (
     <div className="headerLeft">
       <div className="headerLeftTop">
@@ -32,6 +35,7 @@ function HeaderLeft() {
           <img
             src="https://i.redd.it/qe9k0tyayre21.png"
             alt="gamePageLogo"
+            onClick={resetButtons}
           ></img>
         </Link>
       </div>
@@ -94,11 +98,14 @@ function MenuModal({ modalDisplay, setModalDisplay }) {
 
 function MenuLink({ urlLink, category }) {
   const myContext = useGeneralContext();
+  const resetButtons = useResetButtons();
 
   return (
     <Link
       to={urlLink}
       onClick={() => {
+        resetButtons();
+
         myContext.dispatch({
           type: "NEWPAGEHEAD",
           newPageHead: category,

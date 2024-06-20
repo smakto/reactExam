@@ -5,13 +5,15 @@ export function useData(url) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    if (url[0] === "/") {
+      retrieveData();
+    }
     async function retrieveData() {
       const response = await fetch(`http://localhost:3000${url}`);
       const result = await response.json();
       setNewDataset(result);
       setLoaded(true);
     }
-    retrieveData();
   }, [url]);
 
   function addData(newData) {

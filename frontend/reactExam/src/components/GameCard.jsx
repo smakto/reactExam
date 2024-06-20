@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Platforms } from "./Platforms";
-import { Modal } from "./Modal";
-import { useEffect, useState } from "react";
+import { Modal } from "./Modals";
+import { Suspense, useEffect, useState } from "react";
+import { PlaceHolderDiv } from "./PlaceHolder";
 
 export function GameCard({ data, dataDel }) {
   const [modalDisplay, setModalDisplay] = useState(false);
@@ -12,9 +13,16 @@ export function GameCard({ data, dataDel }) {
   }, [modalDisplay]);
 
   return (
-    <>
+    <Suspense
+      fallback={
+        <PlaceHolderDiv
+          className={"placeHolderDiv"}
+          alertText={"Loading. Please wait."}
+        />
+      }
+    >
       <Modal
-        modalClassName={modalDisplay ? "gameCardModalOn" : "gameCardModalOff"}
+        modalClassName={modalDisplay ? "modalBckgOn" : "modalBckgOff"}
         modalContent={
           <DeleteConfirmation
             deleteConfirmClass={
@@ -39,7 +47,7 @@ export function GameCard({ data, dataDel }) {
         setIdToDelete={setIdToDelete}
         modalState={modalDisplay}
       />
-    </>
+    </Suspense>
   );
 }
 
@@ -49,37 +57,38 @@ function CardContent({ cardData, toggleModal, setIdToDelete, modalState }) {
     cardData &&
     cardData.map((game) => {
       return (
-        <div
-          key={game._id}
-          className="gameCard"
-          onClick={() => {
-            navigate(`/games/${game._id}`);
-          }}
-        >
-          <div className="cardImg">
-            <img src={game.img} alt="gameLogo" />
-          </div>
-
-          <h3>
-            {game.name} ({game.releaseDate})
-          </h3>
-          <h5>Genre: {game.genre}</h5>
-          <h5>Status: {game.status}</h5>
-          <div className="cardBottom">
-            <Platforms source={game} containerClasses={"platformIcons"} />
-            <div className="gameCardButtonContainer">
-              <button
-                onClick={(event) => {
-                  event.stopPropagation();
-                  toggleModal(!modalState);
-                  setIdToDelete(game._id);
-                }}
-              >
-                <i className="fa-solid fa-trash fa-xl"></i>
-              </button>
+        <Suspense key={Math.random()} fallback={<h5>Image loading</h5>}>
+          <div
+            key={game._id}
+            className="gameCard"
+            onClick={() => {
+              navigate(`/games/${game._id}`);
+            }}
+          >
+            <div className="cardImg">
+              <img src={game.img} alt="gameLogo" loading="eager" />
+            </div>
+            <h3>
+              {game.name} ({game.releaseDate})
+            </h3>
+            <h5>Genre: {game.genre}</h5>
+            <h5>Status: {game.status}</h5>
+            <div className="cardBottom">
+              <Platforms source={game} containerClasses={"platformIcons"} />
+              <div className="gameCardButtonContainer">
+                <button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    toggleModal(!modalState);
+                    setIdToDelete(game._id);
+                  }}
+                >
+                  <i className="fa-solid fa-trash fa-xl"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </Suspense>
       );
     })
   );

@@ -5,13 +5,13 @@ export function PageHead({ handleSearchInput }) {
   const myContext = useGeneralContext();
 
   function handleClick(currentValue, buttonOn, buttonOff) {
-    resetButtons();
+    resetAllButtons();
     myContext.dispatch({
       type: currentValue ? buttonOff : buttonOn,
     });
   }
 
-  function resetButtons() {
+  function resetAllButtons() {
     myContext.dispatch({
       type: "WISHLISTOFF",
     });

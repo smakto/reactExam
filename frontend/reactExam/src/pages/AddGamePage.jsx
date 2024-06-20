@@ -20,7 +20,7 @@ export function AddGamePage() {
     setData(value);
   }
 
-  function handleCheckbox(isChecked, setChecked) {
+  function handleCheckbox(setChecked, isChecked) {
     setChecked(!isChecked);
   }
 
