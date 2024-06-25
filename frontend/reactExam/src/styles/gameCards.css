@@ -1,0 +1,138 @@
+.gameCardsContainer {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 25px;
+  columns: 4;
+  column-width: 100%;
+}
+
+.gameCard {
+  background-color: #ede8f5;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  page-break-inside: avoid;
+  border: 1px solid #ede8f5;
+}
+
+.gameCard:hover {
+  transform: scale(1.07);
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.cardImg {
+  text-align: center;
+}
+
+.cardImg img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.gameCard h3 {
+  text-align: center;
+  margin: 5px 10px;
+}
+
+.gameCard h5 {
+  margin: 5px 15px;
+}
+
+.gameCard button {
+  border: none;
+  background: none;
+  padding-bottom: 5px;
+}
+
+.gameCard button:hover {
+  cursor: pointer;
+}
+
+.gameCard button i {
+  color: red;
+}
+
+.platformIcons {
+  display: flex;
+  width: 60%;
+  justify-content: flex-start;
+  height: 25px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.gameCardButtonContainer {
+  text-align: right;
+  margin: 10px;
+}
+
+.fa-playstation {
+  color: blue;
+  margin: 10px;
+}
+
+.fa-xbox {
+  color: green;
+  margin-right: 15px;
+}
+
+.fa-computer {
+  color: black;
+  margin-right: 5px;
+}
+
+.cardBottom {
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
+}
+
+.showAllButtonContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.showAllButton {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  width: 10%;
+}
+
+.showAllButton:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.showAllButtonOff {
+  display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .gameCardsContainer {
+    columns: 3;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .gameCardsContainer {
+    columns: 2;
+  }
+  .showAllButton {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .gameCardsContainer {
+    columns: 1;
+  }
+  .showAllButton {
+    width: 20%;
+  }
+}

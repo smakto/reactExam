@@ -1,0 +1,639 @@
+[{
+  "_id": {
+    "$oid": "6669a8229fe890e5fdbf32dd"
+  },
+  "genre": "Racing",
+  "img": "https://assets-prd.ignimgs.com/2022/01/21/need-for-speed-underground-2-button-crop-1642797115202.jpg",
+  "multiplayer": "No",
+  "name": "Need for Speed: Underground",
+  "releaseDate": 2003,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+    "9": "",
+    "10": "",
+    "11": "Trys",
+    "undefined": "",
+    "noteToEdit.noteKey": "Vienas Du"
+  }
+},
+{
+  "_id": {
+    "$oid": "6669aa0f9fe890e5fdbf32de"
+  },
+  "genre": "Action-adventure",
+  "img": "https://cdn.europosters.eu/image/750/posters/playstation-god-of-war-i116582.jpg",
+  "multiplayer": "No",
+  "name": "God of War",
+  "releaseDate": 2018,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  },
+  "note": {
+    "1": "New game plus not done yet."
+  }
+},
+{
+  "_id": {
+    "$oid": "6669aa339fe890e5fdbf32df"
+  },
+  "genre": "Action-adventure",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
+  "multiplayer": "No",
+  "name": "God of War: Ragnarok",
+  "releaseDate": 2022,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "6669aa619fe890e5fdbf32e0"
+  },
+  "genre": "Strategy",
+  "img": "https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_Frostpunk_11bitstudios_S1_2560x1440-ef2f4d458120af0839dde35b1a022828",
+  "multiplayer": "No",
+  "name": "Frostpunk",
+  "releaseDate": 2018,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "Unlimited resources cheat: \"GIVEMEALL\""
+  }
+},
+{
+  "_id": {
+    "$oid": "6669ab4b9fe890e5fdbf32e4"
+  },
+  "genre": "Action-adventure",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/capsule_616x353.jpg?t=1705604245",
+  "multiplayer": "No",
+  "name": "Dishonored",
+  "releaseDate": 2012,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669ab689fe890e5fdbf32e5"
+  },
+  "genre": "Action-adventure",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/capsule_616x353.jpg?t=1705604366",
+  "multiplayer": "No",
+  "name": "Dishonored 2",
+  "releaseDate": 2016,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669ab899fe890e5fdbf32e6"
+  },
+  "genre": "Action-adventure",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/614570/capsule_616x353.jpg?t=1705940058",
+  "multiplayer": "No",
+  "name": "Dishonored: Death of the Outsider",
+  "releaseDate": 2017,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669bc429fe890e5fdbf32e7"
+  },
+  "genre": "Action-adventure",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/241930/capsule_616x353.jpg?t=1633983562",
+  "multiplayer": "Yes",
+  "name": "Shadow of Mordor",
+  "releaseDate": 2014,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669bc959fe890e5fdbf32e8"
+  },
+  "genre": "Action-adventure",
+  "img": "https://images.gog-statics.com/0b84cdf69f54427b8e3a68165a390bb93e88c082b8d51c6657cd15776a63282c.jpg",
+  "multiplayer": "Yes",
+  "name": "Shadow of War",
+  "releaseDate": 2017,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669bcef9fe890e5fdbf32e9"
+  },
+  "genre": "Racing",
+  "img": "https://assets-prd.ignimgs.com/2024/04/10/blur-object-1712712272688.jpg",
+  "multiplayer": "Yes",
+  "name": "Blur",
+  "releaseDate": 2010,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "Best couch racing game. Periodically check if available on PS or PC."
+  }
+},
+{
+  "_id": {
+    "$oid": "6669bdff9fe890e5fdbf32ec"
+  },
+  "genre": "Action-adventure RPG",
+  "img": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+  "multiplayer": "No",
+  "name": "Cyberpunk 2077",
+  "releaseDate": 2020,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "Purchase with DLC."
+  }
+},
+{
+  "_id": {
+    "$oid": "6669be3b9fe890e5fdbf32ed"
+  },
+  "genre": "Action-adventure",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/PRfYtTZQsuj3ALrBXGL8MjAH.jpg",
+  "multiplayer": "No",
+  "name": "Spider-Man: Miles Morales",
+  "releaseDate": 2020,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "6669be539fe890e5fdbf32ee"
+  },
+  "genre": "Action-adventure",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/e66c4ae18c5d8e3986a24599b293162a6f5c9eba22968d2c.jpg",
+  "multiplayer": "No",
+  "name": "Spiderman 2 ",
+  "releaseDate": 2023,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "6669be959fe890e5fdbf32ef"
+  },
+  "genre": "Action RPG",
+  "img": "https://cdn1.epicgames.com/spt-assets/c47ffdc5b1cb42fc83bd9ea42861b800/deus-ex--mankind-divided-sh7ri.jpg",
+  "multiplayer": "No",
+  "name": "Deus Ex: Mankind Divided",
+  "releaseDate": 2016,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669beea9fe890e5fdbf32f0"
+  },
+  "genre": "Action RPG",
+  "img": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000014724/72ce0a17215521a167c3da579db4cc48a2f7a52eacc81ad985ba20fd6817fdc2",
+  "multiplayer": "No",
+  "name": "Hogwarts Legacy",
+  "releaseDate": 2023,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669c0209fe890e5fdbf32f1"
+  },
+  "genre": "Strategy",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1601580/capsule_616x353.jpg?t=1717769517",
+  "multiplayer": "No",
+  "name": "Frostpunk 2 ",
+  "releaseDate": 2024,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669c0689fe890e5fdbf32f2"
+  },
+  "genre": "Action-adventure",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/b3iB2zf2xHj9shC0XDTULxND.png",
+  "multiplayer": "No",
+  "name": "Ghost of Tsushima",
+  "releaseDate": 2020,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669c0f69fe890e5fdbf32f3"
+  },
+  "genre": "Action RPG",
+  "img": "https://image.api.playstation.com/vulcan/img/rnd/202009/3000/C14XMwZBi6CYKOacUDf6EzEs.jpg",
+  "multiplayer": "No",
+  "name": "Horizon Zero Dawn",
+  "releaseDate": 2017,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6669c1249fe890e5fdbf32f4"
+  },
+  "genre": "Action-adventure RPG",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202107/3100/HO8vkO9pfXhwbHi5WHECQJdN.png",
+  "multiplayer": "No",
+  "name": "Horizon Forbidden West",
+  "releaseDate": 2022,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "6669c2b19fe890e5fdbf32f5"
+  },
+  "genre": "Action-adventure",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1895880/capsule_616x353.jpg?t=1717621710",
+  "multiplayer": "No",
+  "name": "Ratchet & Clank: Rift Apart",
+  "releaseDate": 2021,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  },
+  "note": {
+    "1": "",
+    "2": "",
+    "3": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "666b424b3ef2bcc12173c2b5"
+  },
+  "genre": "Action-adventure",
+  "img": "https://gaming-cdn.com/images/products/10767/orig/marvel-s-spider-man-remastered-ps5-playstation-5-game-playstation-store-europe-cover.jpg?v=1713531453",
+  "multiplayer": "No",
+  "name": "Spiderman",
+  "releaseDate": 2018,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "66706f0f6a41cd3e0d0d68f1"
+  },
+  "genre": "Action RPG",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202211/3007/JnzRCl2Yj208yuJoSfoGXMGt.jpg",
+  "multiplayer": "No",
+  "name": "Final Fantasy XVI",
+  "releaseDate": 2023,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "66706f946a41cd3e0d0d68f3"
+  },
+  "genre": "RPG",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/3098481c9164bb5f33069b37e49fba1a572ea3b89971ee7b.jpg",
+  "multiplayer": "No",
+  "name": "Baldur's Gate 3",
+  "releaseDate": 2023,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "66706fec6a41cd3e0d0d68f4"
+  },
+  "genre": "RPG",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1716740/capsule_616x353.jpg?t=1718028618",
+  "multiplayer": "No",
+  "name": "Starfield",
+  "releaseDate": 2023,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 0,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "Wait until available on PS5."
+  }
+},
+{
+  "_id": {
+    "$oid": "6670702f6a41cd3e0d0d68f5"
+  },
+  "genre": "Action-adventure",
+  "img": "https://d13jj08vfqimqg.cloudfront.net/uploads/article/header_marquee/2392/large_gtav.jpg",
+  "multiplayer": "Yes",
+  "name": "GTA V",
+  "releaseDate": 2013,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6671c912d5f5d97b7677da4b"
+  },
+  "genre": "Racing",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846380/capsule_616x353.jpg?t=1717488164",
+  "multiplayer": "Yes",
+  "name": "Need for Speed: Unbound",
+  "releaseDate": 2022,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6671c997d5f5d97b7677da4c"
+  },
+  "genre": "Action-adventure",
+  "img": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/batman-arkham-asylum/1/11/01-Batman_Arkham_Asylum.jpg",
+  "multiplayer": "No",
+  "name": "Batman",
+  "releaseDate": 2009,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6671c9ded5f5d97b7677da4d"
+  },
+  "genre": "Action-adventure",
+  "img": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/eEczyEMDd2BLa3dtkGJVE9Id.png",
+  "multiplayer": "No",
+  "name": "The Last of Us Part I",
+  "releaseDate": 2022,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  },
+  "note": {
+    "1": "Wait for sale."
+  }
+},
+{
+  "_id": {
+    "$oid": "6671ca15d5f5d97b7677da4e"
+  },
+  "genre": "Action-adventure",
+  "img": "https://blog.playstation.com/uploads/2024/01/76a2583e03ed46f0d63c50b9c347937d6a251a6a.jpeg",
+  "multiplayer": "No",
+  "name": "The Last of Us Part II: Remastered",
+  "releaseDate": 2024,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6672f58efc9dcfe1c4304eba"
+  },
+  "genre": "Tactical RPG, Turn-based, Strategy",
+  "img": "https://upload.wikimedia.org/wikipedia/en/4/42/Marvel%27s_Midnight_Suns.jpg",
+  "multiplayer": "No",
+  "name": "Midnight Suns",
+  "releaseDate": 2022,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6672f5c8fc9dcfe1c4304ebb"
+  },
+  "genre": "Turn-based, Strategy",
+  "img": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/ncom/en_US/games/switch/w/worms-w-m-d-switch/hero",
+  "multiplayer": "Yes",
+  "name": "Worms W.M.D.",
+  "releaseDate": 2016,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": "Test note edit.",
+    "2": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6672f985297bd9ecf5549044"
+  },
+  "genre": "Roguelike, Action",
+  "img": "https://upload.wikimedia.org/wikipedia/en/9/91/Returnal_cover_art.jpg",
+  "multiplayer": "No",
+  "name": "Returnal",
+  "releaseDate": 2021,
+  "status": "In-progress",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 0,
+    "PC": 1
+  },
+  "note": {
+    "1": "",
+    "2": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "6672fd4c297bd9ecf5549045"
+  },
+  "genre": "Shooter, Immersive sim",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/capsule_616x353.jpg?t=1594910513",
+  "multiplayer": "No",
+  "name": "Prey",
+  "releaseDate": 2017,
+  "status": "Done",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6672fd94297bd9ecf5549046"
+  },
+  "genre": "Roguelike, Action RPG",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145360/capsule_616x353.jpg?t=1715722799",
+  "multiplayer": "No",
+  "name": "Hades",
+  "releaseDate": 2020,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "667454eab14133409cb69d24"
+  },
+  "genre": "Action RPG",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2344520/capsule_616x353.jpg?t=1718138209",
+  "multiplayer": "Yes",
+  "name": "Diablo IV",
+  "releaseDate": 2023,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 1,
+    "Xbox": 1,
+    "PC": 1
+  },
+  "note": {
+    "1": ""
+  }
+},
+{
+  "_id": {
+    "$oid": "667456d5b14133409cb69d26"
+  },
+  "genre": "Strategy",
+  "img": "https://clouddosage.com/wp-content/uploads/2023/02/ageofempires4.jpg",
+  "multiplayer": "No",
+  "name": "Age of Empires IV",
+  "releaseDate": 2021,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 0,
+    "Xbox": 1,
+    "PC": 1
+  }
+},
+{
+  "_id": {
+    "$oid": "6674639db14133409cb69d27"
+  },
+  "genre": "Racing",
+  "img": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1718730250",
+  "multiplayer": "Yes",
+  "name": "Forza Horizon 5",
+  "releaseDate": 2021,
+  "status": "Wishlist",
+  "platform": {
+    "Playstation": 0,
+    "Xbox": 1,
+    "PC": 1
+  }
+}]

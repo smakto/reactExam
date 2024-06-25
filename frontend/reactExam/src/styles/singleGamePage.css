@@ -1,0 +1,162 @@
+.singleGameDiv,
+.singleGameNotes {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 25px;
+  border: 1px solid #ede8f5;
+  background-color: #7091e6;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -13px 15px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -26px 20px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -59px 30px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 10px 8px, rgba(0, 0, 0, 0.09) 0px 22px 10px;
+}
+
+.singleGameNotes {
+  flex-direction: column;
+}
+
+.singleGameNotes > div:not(:last-of-type) {
+  border-bottom: 1px solid #ede8f5;
+}
+
+.noteInputContainer {
+  border-top: 1px solid #ede8f5;
+}
+
+.singleGameNotes > div,
+.singleGameLeft {
+  padding: 15px;
+}
+
+.singleGameLeft {
+  margin: 20px;
+  width: 50%;
+}
+
+.singleGameLeft h1 {
+  margin-top: 0;
+}
+
+.singleGameRight,
+.editStatusContainer,
+.gameNote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gameNote p {
+  font-weight: bold;
+  font-size: smaller;
+  width: 70%;
+}
+
+.singleGameRight {
+  width: 50%;
+}
+
+.singleGameRight img {
+  width: 100%;
+}
+
+.singleGamePlatforms {
+  width: 30%;
+}
+
+.noteInputContainer textarea {
+  max-width: 100%;
+}
+
+.noteInputContainer button,
+.editStatusButton {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+}
+
+.gameNotesArea {
+  width: 100%;
+}
+
+.singleGameInfo > * {
+  margin: 20px;
+}
+
+.editStatusContainer > * {
+  margin: 0px;
+}
+
+.notesButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.notesButtons button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  margin: 5px;
+}
+
+.emptyGameNotes {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .singleGameDiv {
+    flex-direction: column-reverse;
+  }
+
+  .singleGameLeft {
+    width: 90%;
+  }
+
+  .singleGameRight {
+    width: 100%;
+    align-items: center;
+  }
+
+  .gameNotesArea {
+    max-width: 90%;
+  }
+
+  .notesButtons {
+    width: 15%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .singleGameLeft {
+    margin: 0;
+    align-self: center;
+  }
+
+  .singleGameDiv h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .noteInputContainer textarea {
+    font-size: 12px;
+    max-width: 95%;
+  }
+
+  .notesButtons button {
+    font-size: 12px;
+  }
+  .notesButtons {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .singleGameInfo > * {
+    margin: 10px 5px;
+    font-size: smaller;
+  }
+  .notesButtons {
+    width: 25%;
+  }
+}

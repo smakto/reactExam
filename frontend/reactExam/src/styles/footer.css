@@ -1,0 +1,62 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0px auto;
+  background: url(https://t3.ftcdn.net/jpg/03/23/88/08/360_F_323880864_TPsH5ropjEBo1ViILJmcFHJqsBzorxUB.jpghttps://t3.ftcdn.net/jpg/02/42/75/76/360_F_242757656_LYhzT9Kzxb5XdOsNY6SYSyroxMzZBeRN.jpg);
+
+  background-color: #7091e6;
+  border-top: 1px solid #ede8f5;
+}
+
+footer > div {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+}
+
+footer img {
+  height: 23px;
+}
+
+footer img.ignLogo {
+  height: 20px;
+}
+
+@media only screen and (max-width: 765px) {
+  footer img {
+    height: 18px;
+  }
+
+  footer img.ignLogo {
+    height: 15px;
+  }
+}
+
+@media only screen and (max-width: 566px) {
+  footer img {
+    height: 16px;
+  }
+
+  footer img.ignLogo {
+    height: 13px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  footer img {
+    height: 13px;
+  }
+
+  footer img.ignLogo {
+    height: 10px;
+  }
+}

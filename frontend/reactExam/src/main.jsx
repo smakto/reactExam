@@ -6,9 +6,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { App } from "./App";
-import { GamePage } from "./pages/GamePage";
+import { MainPage } from "./pages/MainPage";
 
 import "./index.css";
+import { AddGamePage } from "./pages/AddGamePage";
+import { SingleGamePage } from "./pages/SingleGame";
+import { GeneralContextProvider } from "./contexts/useContext";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +20,40 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Navigate to="/games" />,
+        element: <Navigate to="/games?limit=15" />,
       },
       {
         path: "/games",
-        element: <GamePage />,
+        element: <MainPage />,
+      },
+      {
+        path: "/psgames",
+        element: <MainPage />,
+      },
+      {
+        path: "/xboxgames",
+        element: <MainPage />,
+      },
+      {
+        path: "/pcgames",
+        element: <MainPage />,
+      },
+      {
+        path: "/multiplayer",
+        element: <MainPage />,
+      },
+      {
+        path: "/genre/:genre",
+        element: <MainPage />,
+      },
+
+      {
+        path: "/addGame",
+        element: <AddGamePage />,
+      },
+      {
+        path: "/games/:id",
+        element: <SingleGamePage />,
       },
     ],
   },
@@ -29,15 +61,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GeneralContextProvider>
+      <RouterProvider router={router} />
+    </GeneralContextProvider>
   </React.StrictMode>
 );
-
-// Page to show all games.
-// Platform selector
-// Multiplayer selector
-// Status selector
-// Edit modal to change status
-// Padaryti veikiantį search
-// Doubleclick - nuveda į game page.
-// Error handling

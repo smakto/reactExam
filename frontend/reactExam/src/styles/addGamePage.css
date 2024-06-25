@@ -1,0 +1,123 @@
+.addGameForm {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 25px;
+  border: 1px solid #ede8f5;
+  background-color: #7091e6;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -13px 15px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -26px 20px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -59px 30px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 10px 8px, rgba(0, 0, 0, 0.09) 0px 22px 10px;
+}
+
+.addGameContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.addGameContainer > * {
+  margin: 3px;
+}
+
+.addGameContainer input {
+  background-color: #a0b4ef;
+  border: 1px solid #ede8f5;
+}
+
+.formSubmitDiv {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.formSubmitDiv > button {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  padding: 2px 15px;
+}
+
+.statusSelector select {
+  background-color: #a0b4ef;
+  border: 1px solid #ede8f5;
+  width: 40%;
+}
+
+.statusSelector option {
+  text-align: center;
+}
+
+.platformSelector,
+.multiplayerSelector,
+.statusSelector {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .addGameForm {
+    width: 70%;
+  }
+  .addGameContainer {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  .addGameContainer {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .addGameContainer {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .addGameForm {
+    width: 80%;
+  }
+  .addGameContainer {
+    padding: 20px 5px;
+  }
+
+  .platformSelector,
+  .multiplayerSelector {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .platformSelector div label,
+  .multiplayerSelector div label {
+    font-size: 12px;
+  }
+
+  .multiplayerSelector div,
+  .platformSelector div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .statusSelector {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .statusSelector label {
+    margin-bottom: 2px;
+  }
+
+  .statusSelector select {
+    scale: 0.95;
+  }
+}
