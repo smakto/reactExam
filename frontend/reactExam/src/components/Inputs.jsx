@@ -6,13 +6,15 @@ export function Input({
   setData,
   value,
   defaultChecked,
+  id,
 }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
         required
         type={type}
+        id={id}
         name={name}
         value={value}
         defaultChecked={defaultChecked}
@@ -31,12 +33,14 @@ export function InputCheckbox({
   value,
   isChecked,
   setChecked,
+  id,
 }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
         key={Math.random()}
+        id={id}
         type={"checkbox"}
         name={name}
         value={value}

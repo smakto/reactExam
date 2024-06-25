@@ -14,6 +14,7 @@ export function SingleGamePage() {
   const [gameNote, setGameNote] = useState("");
   const [noteCount, setNoteCount] = useState(1);
   const [notesKeys, setNoteKeys] = useState("");
+  const [availableNotes, setAvailableNotes] = useState(false);
 
   const [newStatusModal, setModalDisplay] = useState(false);
   const [editNoteModal, setEditModalDisplay] = useState(false);
@@ -29,6 +30,11 @@ export function SingleGamePage() {
         const notesKeysArray = Object.keys(game.note);
         setNoteKeys(notesKeysArray);
         setNoteCount(notesKeysArray.length + 1);
+        if (notesKeysArray) {
+          notesKeysArray.forEach((key) => {
+            if (game.note[key] !== "") setAvailableNotes(true);
+          });
+        }
       } else setNoteCount(1);
     }
   }, [game]);
@@ -92,7 +98,7 @@ export function SingleGamePage() {
           handleNewGameNoteInput={handleNewGameNoteInput}
           handleNoteAdd={handleNoteAdd}
         />
-        {typeof notesKeys !== "string" && (
+        {typeof notesKeys !== "string" && availableNotes && (
           <div className={`singleGameNotes`}>
             {notesKeys.map((index) => {
               if (game.note[index].length > 0) {
@@ -209,6 +215,7 @@ function GameNoteCreateArea({ handleNoteAdd, handleNewGameNoteInput }) {
         <h4>New note:</h4>
       </label>
       <textarea
+        id="gameNotesArea"
         name="gameNotesArea"
         className="gameNotesArea"
         onChange={(event) => {

@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Navigate to="/games" />,
+        element: <Navigate to="/games?limit=15" />,
       },
       {
         path: "/games",

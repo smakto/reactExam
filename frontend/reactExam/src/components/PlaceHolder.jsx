@@ -1,3 +1,5 @@
+import "../styles/placeholder.css";
+
 export function PlaceHolderDiv({ className, alertText }) {
   return (
     <div className={className}>

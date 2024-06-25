@@ -31,7 +31,8 @@ connect();
 app.get("/games", async (req, res) => {
   try {
     let collection = await db.collection(process.env.DBCOLLECTION);
-    let results = await collection.find().toArray();
+    let gameLimit = parseInt(req.query.limit) || 100;
+    let results = await collection.find().limit(gameLimit).toArray();
     res.status(200).send(results);
   } catch (e) {
     res.status(500).json({ error: e.message });
@@ -107,7 +108,6 @@ app.get("/games/:id", async (req, res) => {
 app.post("/games", async (req, res) => {
   try {
     const newGame = req.body;
-    console.log(req.body);
     let collection = await db.collection(process.env.DBCOLLECTION);
     let results = await collection.insertOne(newGame);
     res.status(201).json({ success: true });

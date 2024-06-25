@@ -92,6 +92,27 @@
   justify-content: space-between;
 }
 
+.showAllButtonContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.showAllButton {
+  font-family: "Tiny5", sans-serif;
+  background-color: #ede8f5;
+  width: 10%;
+}
+
+.showAllButton:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.showAllButtonOff {
+  display: none;
+}
+
 @media only screen and (max-width: 1024px) {
   .gameCardsContainer {
     columns: 3;
@@ -102,10 +123,16 @@
   .gameCardsContainer {
     columns: 2;
   }
+  .showAllButton {
+    width: 15%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
   .gameCardsContainer {
     columns: 1;
+  }
+  .showAllButton {
+    width: 20%;
   }
 }

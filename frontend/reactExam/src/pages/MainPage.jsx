@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { useGeneralContext } from "../contexts/useContext";
 import { useSearch } from "../hooks/useSearch";
 import { PlaceHolderDiv } from "../components/PlaceHolder";
+import { useNavigate } from "react-router-dom";
+import { useResetButtons } from "../hooks/useResetButtons";
 
 function searchFunct(element, inputValue) {
   return element.name.toLowerCase().includes(inputValue.toLowerCase());
@@ -13,12 +15,17 @@ function searchFunct(element, inputValue) {
 
 export function MainPage() {
   const urlPath = window.location.pathname;
-
-  const { dataSet, deleteData, loaded } = useData(urlPath);
+  const queryParameters = new URLSearchParams(window.location.search);
+  const limit = queryParameters.get("limit");
+  const navigate = useNavigate();
+  const resetButtons = useResetButtons();
+  const { dataSet, deleteData, loaded } = useData(`${urlPath}?limit=${limit}`);
   const [dataToRender, setDataToRender] = useState([]);
   const myContext = useGeneralContext();
 
   const [data, handleInput] = useSearch(dataToRender, searchFunct);
+
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     loaded && setDataToRender(dataSet);
@@ -63,6 +70,21 @@ export function MainPage() {
           alertText={"No games in selected category."}
         />
       )}
+      <div
+        className={showButton ? "showAllButtonContainer" : "showAllButtonOff"}
+      >
+        <button
+          className="showAllButton"
+          onClick={() => {
+            navigate("/games");
+            setShowButton(false);
+            resetButtons();
+            window.scrollTo(0, 0);
+          }}
+        >
+          Show all
+        </button>
+      </div>
     </>
   );
 }

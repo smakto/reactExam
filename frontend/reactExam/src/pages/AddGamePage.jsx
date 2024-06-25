@@ -59,6 +59,7 @@ export function AddGamePage() {
       <div className="addGameContainer">
         <Input
           type={"text"}
+          id={"gameTitle"}
           label={"Game title"}
           name={"gameTitle"}
           handleChange={handleChange}
@@ -66,6 +67,7 @@ export function AddGamePage() {
         />
         <Input
           type={"number"}
+          id={"releaseDate"}
           label={"Release year"}
           name={"releaseDate"}
           handleChange={handleChange}
@@ -73,6 +75,7 @@ export function AddGamePage() {
         />
         <Input
           type={"text"}
+          id={"genre"}
           label={"Genre"}
           name={"genre"}
           handleChange={handleChange}
@@ -80,6 +83,7 @@ export function AddGamePage() {
         />
         <Input
           type={"text"}
+          id={"image"}
           label={"Image URL"}
           name={"image"}
           handleChange={handleChange}
@@ -121,6 +125,7 @@ function MultiplayerSelectorInput({ handleChange, setIsMultiplayer }) {
       <div>
         <Input
           type={"radio"}
+          id={"isMultiplayer"}
           label={"Yes"}
           name={"isMultiplayer"}
           value={"Yes"}
@@ -156,6 +161,7 @@ function PlatformSelectorInput({
       <div>
         <InputCheckbox
           label={"Playstation"}
+          id={"availablePlatforms"}
           name={"availablePlatforms"}
           value={false}
           handleCheckbox={handleCheckbox}

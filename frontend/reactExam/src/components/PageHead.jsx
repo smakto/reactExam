@@ -83,6 +83,7 @@ function PageHeadRight({ handleSearchInput }) {
     <div className="pageHeadRight">
       <label htmlFor="searchInput">Search game name:</label>
       <input
+        id="searchInput"
         type="text"
         name="searchInput"
         onChange={handleSearchInput}
